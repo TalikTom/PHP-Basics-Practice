@@ -1,10 +1,13 @@
 <?php
 
+
+
 echo 'Hello World';
 echo 'Luka\'s notes';
 echo "Luka's notes";
 
 $name = 'Luka';
+$greeting = 'Hello World';
 
 echo "My name is $name";
 echo 'My name is ' . $name;
@@ -24,3 +27,5 @@ $y = &$x;
 $x = 3;
 
 echo $y;
+
+require 'index.view.php';
