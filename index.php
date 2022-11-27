@@ -28,4 +28,17 @@ $x = 3;
 
 echo $y;
 
+//constants, define them by all uppercase
+//no need for $ when echoing constant
+
+define('STATUS_PAID', 'paid');
+
+echo STATUS_PAID;
+
+echo defined('STATUS_PAID');
+
+//constants defined with const keyword are defined at compile time, while const created with define function are defined at runtime
+
+const STATUS_PAID = 'paid';
+
 require 'index.view.php';
