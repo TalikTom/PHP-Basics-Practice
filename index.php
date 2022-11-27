@@ -41,4 +41,21 @@ echo defined('STATUS_PAID');
 
 const STATUS_PAID = 'paid';
 
+//dynamicaly declared constant
+
+$void = 'VOID';
+
+define('STATUS_' . $void, $void);
+
+echo STATUS_VOID;
+
+//variable variables
+
+$foo = 'bar';
+
+$$foo = 'baz';
+
+echo "$foo, $bar";
+echo "$foo, ${$foo}";
+
 require 'index.view.php';
