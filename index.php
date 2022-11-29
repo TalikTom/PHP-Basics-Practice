@@ -58,4 +58,49 @@ $$foo = 'baz';
 echo "$foo, $bar" . '<br />';
 echo "$foo, ${$foo}" . '<br />';
 
+//arrays
+
+$companies = [];
+$companies[] = 1;
+$companies[]= 2;
+
+print_r($companies);
+
+//boolean
+
+$true = 0;
+
+if($true) {
+    echo 'It works';
+} else {
+    echo "It wasn't true";
+}
+
 require 'index.view.php';
+
+
+//arithmetic operators (+-*/%**)
+$a = 10;
+$b = 2;
+
+
+//using mod with floats
+var_dump(fmod($a, $b));
+
+// if / else /elseif / else if
+
+$score = 50;
+if($score >= 90) {
+    echo 'A';
+    if($score >= 95) {
+        echo '+';
+    };
+} elseif($score >= 80) {
+    echo 'B';
+} elseif($score >= 70) {
+    echo 'C';
+} elseif($score >= 60) {
+    echo 'D';
+} else {
+    echo 'F';
+};
