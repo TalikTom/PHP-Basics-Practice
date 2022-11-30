@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+
 echo 'Hello World';
 echo 'Luka\'s notes';
 echo "Luka's notes";
@@ -76,7 +77,7 @@ if($true) {
     echo "It wasn't true";
 }
 
-require 'index.view.php';
+
 
 
 //arithmetic operators (+-*/%**)
@@ -89,7 +90,7 @@ var_dump(fmod($a, $b));
 
 // if / else /elseif / else if
 
-$score = 50;
+$score = 95;
 
 if($score >= 90) {
     echo 'A';
@@ -114,7 +115,9 @@ if($score >= 90) {
         if($score >= 65) {
             echo '+';
         };
-        
+
 } else {
     echo 'F';
 };
+
+require 'index.view.php';
