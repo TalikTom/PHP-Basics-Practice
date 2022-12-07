@@ -24,5 +24,11 @@
         <strong>F</strong>
     <?php endif ?>
 
+    <h2><?= $message ?></h2>
+    <h2><?= $offer . ' on ' . $day .'s'?></h2>
+   
+
+
+
 </body>
 </html>

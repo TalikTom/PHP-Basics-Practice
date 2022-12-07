@@ -120,4 +120,48 @@ if($score >= 90) {
     echo 'F';
 };
 
+
+//loops
+
+$i = 0;
+
+while($i <= 15) {
+    echo $i++;
+}
+
+$stock = 5;
+$ordered = 4;
+
+if ($stock > 0) {
+    $message = 'In stock';
+} elseif ($ordered > 0) {
+    $message = 'Coming soon';
+} else {
+    $message = 'Out of stock';
+}
+
+//switch statement
+
+$day = date('l');
+
+switch ($day) {
+
+    case 'Monday':
+        $offer = '20% off on djindje';
+        break;
+
+    case 'Tuesday':
+        $offer = '20% off on everything';
+        break;
+    
+    case 'Wednesday':
+        $offer = '30% off on kauci';
+        break;
+
+    default:
+        $offer = 'No discount for you!';
+    
+}
+
 require 'index.view.php';
+
