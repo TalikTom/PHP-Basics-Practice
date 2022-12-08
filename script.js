@@ -30,7 +30,7 @@ const chart = Highcharts.chart("container", {
     series: [
         {
             type: "column",
-            name: "Unemployed",
+            name: "Time",
             colorByPoint: true,
             data: [50.4, 36.09, 29.53, 27.54, 20.52, 20.59, 23.37, 17.15],
             showInLegend: false,
