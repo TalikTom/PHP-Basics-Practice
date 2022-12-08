@@ -163,5 +163,13 @@ switch ($day) {
     
 }
 
+$ponuda = match($day) {
+    'Monday' => 'Lijep dan za ponedjeljak',
+    'Tuesday' => 'Lijep dan za utorak',
+    'Wednesday' => 'Lijep dan za srijedu',
+    'Thursday' => 'Lijep dan za cetvrtak',
+    default => 'Nikakav dan'
+};
+
 require 'index.view.php';
 
