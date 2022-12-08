@@ -22,6 +22,11 @@ const chart = Highcharts.chart("container", {
             "Vjezba_8",
         ],
     },
+    yAxis: {
+        title: {
+            text: "Time",
+        },
+    },
     series: [
         {
             type: "column",
