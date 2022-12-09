@@ -197,5 +197,12 @@ do {
     $counter ++;
 } while ($counter < 10);
 
+//for loop   
+
+for ($i = 0; $i < 10; $i++) {
+    echo '<br>';
+    echo $i;
+}
+
 require 'index.view.php';
 

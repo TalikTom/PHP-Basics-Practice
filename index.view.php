@@ -88,6 +88,17 @@
         ?>
     </p>
 
+    <p>
+        <?php
+            for($z = 10; $z<=100; $z += 10) {
+                echo $z;
+                echo ' packs cost $';
+                echo $price * $z;
+                echo '<br>';
+            }
+        ?>
+    </p>
+
     
 </body>
 <script src="script.js"></script>
