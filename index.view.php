@@ -26,8 +26,8 @@
     <button id="plain">Plain</button>
     <button id="inverted">Inverted</button>
     <button id="polar">Polar</button>
-</figure>
-
+    </figure>
+    
     <?php if ($score >= 90) :?>
         <strong>A</strong>
     <?php elseif ($score >= 80) :?>
@@ -43,7 +43,52 @@
     <h2><?= $message ?></h2>
     <h2><?= $offer . ' on ' . $day .'s'?></h2>
     <h3><?= $ponuda ?></h3>
+    <h4>Prices for multiple packs</h4>
 
+    <p>
+        <?php
+            while ($counts <= $packs) {
+                echo $counts;
+                echo ' packs cost $';
+                echo $price * $counts;
+                echo '<br>';
+                $counts++;
+            }
+        ?>
+    </p>
+    
+    <p>
+        <?php
+            while ($lollypopCount < $lollypopPacks) {
+                if ($lollypopCount <= 1) {
+                    echo $lollypopCount;
+                    echo ' lollypop cost $';
+                    echo $lollypopCount * $lollypopPrice;
+                    echo '<br>';
+                    $lollypopCount++;
+                } else {
+                    echo $lollypopCount;
+                    echo ' lollypops costs $';
+                    echo $lollypopCount * $lollypopPrice;
+                    echo '<br>';
+                    $lollypopCount++;
+                }
+            }
+        ?>
+    </p>
+    <p>
+        <?php
+            do {
+                echo $packs;
+                echo ' packs cost $';
+                echo $price * $packs;
+                echo '<br>';
+                $packs--;
+            } while ($packs > 0);
+        ?>
+    </p>
+
+    
 </body>
 <script src="script.js"></script>
 </html>

@@ -163,6 +163,8 @@ switch ($day) {
     
 }
 
+//match
+
 $ponuda = match($day) {
     'Monday' => 'Lijep dan za ponedjeljak',
     'Tuesday' => 'Lijep dan za utorak',
@@ -170,6 +172,30 @@ $ponuda = match($day) {
     'Thursday' => 'Lijep dan za cetvrtak',
     default => 'Nikakav dan'
 };
+
+//while loop
+
+while ($counter <10) {
+    echo 'yup ';
+    $counter++;
+}
+
+$counts = 1;
+$packs = 5;
+$price = 1.99;
+
+
+
+$lollypopCount = 1;
+$lollypopPacks = 10;
+$lollypopPrice = 0.99;
+
+
+//do while gets executed at least once no matter what
+do {
+    echo $counter;
+    $counter ++;
+} while ($counter < 10);
 
 require 'index.view.php';
 
