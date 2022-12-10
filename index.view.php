@@ -99,6 +99,13 @@
         ?>
     </p>
 
+    <?php foreach($products as $item => $price) { ?>
+        <li>
+            <b><?= $item ?></b> - $<?= $price ?>
+        </li>
+    <?php } ?>
+    
+
     
 </body>
 <script src="script.js"></script>

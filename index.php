@@ -204,5 +204,19 @@ for ($i = 0; $i < 10; $i++) {
     echo $i;
 }
 
+//foreach loop
+
+$products = [
+    'toffee' => 2.99,
+    'mints' => 1.99,
+    'fudge' => 3.40
+];
+
+foreach ($products as $item => $price) {
+    echo $item;
+    echo ' -$';
+    echo $price;
+    echo '<br>';
+}
 require 'index.view.php';
 
