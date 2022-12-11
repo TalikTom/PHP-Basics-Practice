@@ -10,6 +10,12 @@ echo "Luka's notes";
 $name = 'Luka';
 $greeting = 'Hello World';
 
+if($name) {
+    $greeting = 'Welcome back, ' . $name;
+}
+
+
+
 echo "My name is $name";
 echo 'My name is ' . $name;
 

@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1>something</h1>
+<h1>Something</h1>
 <nav>
     <a href="/PHP-Basics-Practice/">Home</a>
 </nav>
