@@ -121,7 +121,7 @@
     </table>
     
 
-    
+<?php include 'includes/footer.php'; ?>
 </body>
 <script src="script.js"></script>
 </html>
