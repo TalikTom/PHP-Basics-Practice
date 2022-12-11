@@ -1,0 +1,1 @@
+<h1><?= $greeting . ' ' . $greeting; ?></h1>

@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><?= $greeting; ?></h1>
+    <?php include 'includes/greeting.php'; ?>
 
     <figure class="highcharts-figure">
     <div id="container"></div>
@@ -104,6 +104,21 @@
             <b><?= $item ?></b> - $<?= $price ?>
         </li>
     <?php } ?>
+
+    <h5>Price list</h5>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+        </tr>
+
+        <?php foreach($products as $item => $price) { ?>
+            <tr>
+                <td><?= $item ?></td>
+                <td>$ <?= $price ?></td>
+            </tr>
+        <?php } ?>
+    </table>
     
 
     
