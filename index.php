@@ -219,4 +219,5 @@ foreach ($products as $item => $price) {
     echo '<br>';
 }
 require 'index.view.php';
+require 'about.view.php';
 

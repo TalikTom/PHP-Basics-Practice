@@ -15,6 +15,7 @@
 </head>
 <body>
     <?php include 'includes/greeting.php'; ?>
+    <a href="about.view.php">Link</a>
 
     <figure class="highcharts-figure">
     <div id="container"></div>
