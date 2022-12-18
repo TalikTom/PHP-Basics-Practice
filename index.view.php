@@ -120,6 +120,75 @@
             </tr>
         <?php } ?>
     </table>
+    <table>
+    <tr><th colspan="2" class="title">Data about broswer sent in HTTP headers</th></tr>
+    <tr><th>Broswer IP address</th><td><?= $_SERVER['REMOTE_ADDR'] ?></td></tr>
+    <tr><th>Type of browser</th><td><?= $_SERVER['HTTP_USER_AGENT'] ?></td></tr>
+    <tr><th colspan="2" class="title">HTTP request</th></tr>
+    <tr><th>Host name</th><td><?= $_SERVER['HTTP_HOST'] ?></td></tr>
+    <tr><th>URI after host name</th><td><?= $_SERVER['REQUEST_URI'] ?></td></tr>
+    <tr><th>Query string</th><td><?= $_SERVER['QUERY_STRING'] ?></td></tr>
+    <tr><th>HTTP request method</th><td><?= $_SERVER['REQUEST_METHOD'] ?></td></tr>
+    <tr><th colspan="2" class="title">Location of the file being executed</th></tr>
+    <tr><th>Document root</th><td><?= $_SERVER['DOCUMENT_ROOT'] ?></td></tr>
+    <tr><th>PATH from document root</th><td><?= $_SERVER['SCRIPT_NAME'] ?></td></tr>
+    <tr><th>Absolute path</th><td><?= $_SERVER['SCRIPT_FILENAME'] ?></td></tr>
+
+</table>
+
+<table>
+    <tr>
+        <th>Lowercase:</th>
+        <td><?= strtolower($text) ?></td>
+    </tr>
+    <tr>
+        <th>Uppercase:</th>
+        <td><?= strtoupper($text) ?></td>
+    </tr>
+    <tr>
+        <th>Uppercase first letter:</th>
+        <td><?= ucwords($text) ?></td>
+    </tr>
+    <tr>
+        <th>Character count:</th>
+        <td><?= strlen($text) ?></td>
+    </tr>
+    <tr>
+        <th>Word count:</th>
+        <td><?= str_word_count($text) ?></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th>First match (case-sensitive):</th>
+        <td>"T" - <?=strpos($text, 'T'); ?></td>
+        <td>"t"- <?=strpos($text, 't'); ?></td>
+    </tr>
+    <tr>
+        <th>First match (case-insensitive)</th>
+        <td>"T" - <?=stripos($text, 'T'); ?></td>
+        <td>"t" - <?=stripos($text, 't'); ?></td>
+    </tr>
+    <tr>
+        <th>Last match (case-sensitive):</th>
+        <td>"T" - <?=strrpos($text, 'T'); ?></td>
+        <td>"t"- <?=strrpos($text, 't'); ?></td>
+    </tr>
+    <tr>
+        <th>Last match (case-insensitive)</th>
+        <td>"T" - <?=strripos($text, 'T'); ?></td>
+        <td>"t" - <?=strripos($text, 't'); ?></td>
+    </tr>
+    <tr>
+        <th>Text after first match (case-sensitive)</th>
+        <td>"B" - <?=strstr($text, 'B'); ?></td>
+    </tr>
+    <tr>
+        <th>Text after first match (case-insensitive)</th>
+        <td>"B" - <?=stristr($text, 'B'); ?></td>
+    </tr>
+</table>
     
 
 <?php include 'includes/footer.php'; ?>
