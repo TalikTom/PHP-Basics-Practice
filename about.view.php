@@ -8,10 +8,10 @@ $broj3 = isset($_GET['broj3']) ? $_GET['broj3'] : 0;
 
 if ($broj1 < $broj2 && $broj1 < $broj3) {
     echo 'Broj1' . '(' . $broj1 . ')' . ' je najmanji broj';
-} else if  ($broj2 < $broj1 && $broj2 < $broj3) {
+} else if  ($broj2 < $broj3) {
     echo 'Broj2' . '(' . $broj2 . ')' . ' je najmanji broj';
-} else if ($broj3 < $broj1 && $broj3 < $broj2) {
-    echo 'Broj3' . '(' . $broj3 . ')' . ' je najmanji broj';
+} else if ($broj1 === $broj2 && $broj1 === $broj3) {
+    echo 'All numbers are the same value';
 } else {
-    echo 'all numbers are equal in value';
+    echo 'Broj3' . '(' . $broj3 . ')' . ' je najmanji broj';
 }
