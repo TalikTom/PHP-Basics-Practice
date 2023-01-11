@@ -15,6 +15,13 @@
 </head>
 <body>
     <?php include 'includes/greeting.php'; ?>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.view.php?broj1=1&broj2=2&broj3=3">About</a></li>
+        </ul>
+    </nav>
     <a href="about.view.php">Link</a>
 
     <figure class="highcharts-figure">

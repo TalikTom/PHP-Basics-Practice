@@ -11,5 +11,3 @@
 <nav>
     <a href="/PHP-Basics-Practice/">Home</a>
 </nav>
-</body>
-</html>
