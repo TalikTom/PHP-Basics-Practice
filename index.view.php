@@ -14,6 +14,7 @@
     <title>Document</title>
 </head>
 <body>
+<h2>Get method - Multiplication table</h2>
 <form action="/" method="GET">
     <label for="row">Enter row value</label>
     <input type="text" value="" name="row">
@@ -21,6 +22,8 @@
     <input type="text" value="" name="column">
     <input type="submit">
 </form>
+
+
 <?php
 $column = $_GET['column'] ?? 0;
 $row = $_GET['row'] ?? 0;
@@ -28,14 +31,24 @@ $row = $_GET['row'] ?? 0;
 echo '<table style="text-align: right;">';
     for($i=1;$i<=$row;$i++){
     echo '<tr>';
-        for($j=1;$j<=$column;$j++){
-        echo '<td>' . $i * $j, '</td>';
-        }
+        for($j=1;$j<=$column;$j++)
+            {
+            echo '<td>' . $i * $j, '</td>';
+            }
         echo '</tr>';
     }
     echo '</table>';
 
     ?>
+
+<h2>Post method - Cyclic matrix</h2>
+<form action="/" method="POST">
+    <label for="row">Enter row value</label>
+    <input type="text" value="" name="row">
+    <label for="row">Enter column value</label>
+    <input type="text" value="" name="column">
+    <input type="submit">
+</form>
 
 <?php include 'includes/footer.php'; ?>
 </body>
