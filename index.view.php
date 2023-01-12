@@ -14,11 +14,21 @@
     <title>Document</title>
 </head>
 <body>
+<form action="/" method="GET">
+    <label for="row">Enter row value</label>
+    <input type="text" value="" name="row">
+    <label for="row">Enter column value</label>
+    <input type="text" value="" name="column">
+    <input type="submit">
+</form>
 <?php
+$column = $_GET['column'] ?? 0;
+$row = $_GET['row'] ?? 0;
+
 echo '<table style="text-align: right;">';
-    for($i=1;$i<=10;$i++){
+    for($i=1;$i<=$row;$i++){
     echo '<tr>';
-        for($j=1;$j<=10;$j++){
+        for($j=1;$j<=$column;$j++){
         echo '<td>' . $i * $j, '</td>';
         }
         echo '</tr>';
