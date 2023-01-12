@@ -86,29 +86,17 @@ table {
     padding: 2em;
     line-height: 1.8em;
     text-align: left;
+    border: 1px solid white;
+    margin-top: 2em;
 }
 
 td,
 th {
     padding: 0.3em 2em 0.3em 0;
+    border: 1px solid white;
 }
 
-th:last-child {
-    padding: 0;
-}
 
-tr:nth-child(2) td {
-    padding-top: 0.6em;
-}
-
-th {
-    text-align: left;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    border-bottom: 1px solid #6f7381;
-    font-weight: normal;
-    color: #b5b6c1;
-}
 
 p {
     margin-bottom: 1.6em;
@@ -130,3 +118,4 @@ th.title {
 footer {
     text-align: center;
 }
+
