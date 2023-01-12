@@ -57,11 +57,12 @@ $maxRow = $rowPost-1;
 $maxColumn = $columnPost-1;
 
 echo '<table style="text-align: right;">';
-for($i=$maxColumn;$i>=$maxRow;$i--){
+for($i=$columnPost;$i>=$rowPost;$i--){
     echo '<tr>';
-    for($j=$maxColumn;$j>=$maxRow;$j--)
+    for($j=$columnPost;$j>=$rowPost;$j--)
     {
-        echo '<td>' . $j-$i, '</td>';
+        echo '<td>' . ($j-$i)+1, '</td>';
+
 
     }
     echo '</tr>';
