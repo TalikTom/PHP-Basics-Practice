@@ -53,14 +53,15 @@ echo '<table style="text-align: right;">';
 <?php
 $columnPost = $_POST['column'] ?? 0;
 $rowPost = $_POST['row'] ?? 0;
+$maxRow = $rowPost-1;
 
 echo '<table style="text-align: right;">';
-for($i=0;$i<=$rowPost-1;$i++){
+for($i=0;$i<=$maxRow;$i++){
     echo '<tr>';
     for($j=1;$j<=$columnPost;$j++)
     {
         echo '<td>' . $i+$j, '</td>';
-       
+
     }
     echo '</tr>';
 }
