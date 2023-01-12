@@ -50,6 +50,24 @@ echo '<table style="text-align: right;">';
     <input type="submit">
 </form>
 
+<?php
+$columnPost = $_POST['column'] ?? 0;
+$rowPost = $_POST['row'] ?? 0;
+
+echo '<table style="text-align: right;">';
+for($i=0;$i<=$rowPost-1;$i++){
+    echo '<tr>';
+    for($j=1;$j<=$columnPost;$j++)
+    {
+        echo '<td>' . $i+$j, '</td>';
+       
+    }
+    echo '</tr>';
+}
+echo '</table>';
+
+?>
+
 <?php include 'includes/footer.php'; ?>
 </body>
 <script src="script.js"></script>
