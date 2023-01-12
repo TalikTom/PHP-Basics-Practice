@@ -54,13 +54,14 @@ echo '<table style="text-align: right;">';
 $columnPost = $_POST['column'] ?? 0;
 $rowPost = $_POST['row'] ?? 0;
 $maxRow = $rowPost-1;
+$maxColumn = $columnPost-1;
 
 echo '<table style="text-align: right;">';
-for($i=0;$i<=$maxRow;$i++){
+for($i=$maxColumn;$i>=$maxRow;$i--){
     echo '<tr>';
-    for($j=1;$j<=$columnPost;$j++)
+    for($j=$maxColumn;$j>=$maxRow;$j--)
     {
-        echo '<td>' . $i+$j, '</td>';
+        echo '<td>' . $j-$i, '</td>';
 
     }
     echo '</tr>';
