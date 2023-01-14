@@ -53,8 +53,6 @@ echo '<table style="text-align: right;">';
 <?php
 $columnPost = $_POST['column'] ?? 0;
 $rowPost = $_POST['row'] ?? 0;
-$maxRow = $rowPost-1;
-$maxColumn = $columnPost-1;
 
 echo '<table style="text-align: right;">';
 
