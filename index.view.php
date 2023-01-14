@@ -57,19 +57,19 @@ $maxRow = $rowPost-1;
 $maxColumn = $columnPost-1;
 
 echo '<table style="text-align: right;">';
-for($i=$columnPost;$i>=$rowPost;$i--){
+
+for($i=0; $i<$rowPost; $i++){
     echo '<tr>';
-    for($j=$columnPost;$j>=$rowPost;$j--)
-    {
-        echo '<td>' . ($j-$i)+1, '</td>';
-
-
-    }
+        for($j=0; $j<$columnPost; $j++)
+        {
+            echo '<td>' . $j, '</td>';
+        }
     echo '</tr>';
 }
 echo '</table>';
 
 ?>
+
 
 <?php include 'includes/footer.php'; ?>
 </body>
