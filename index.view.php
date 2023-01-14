@@ -58,9 +58,9 @@ $maxColumn = $columnPost-1;
 
 echo '<table style="text-align: right;">';
 
-for($i=0; $i<$rowPost; $i++){
+for($i=1; $i<$rowPost+1; $i++){
     echo '<tr>';
-        for($j=0; $j<$columnPost; $j++)
+        for($j=1; $j<$columnPost+1; $j++)
         {
             echo '<td>' . $j, '</td>';
         }
