@@ -22,61 +22,64 @@
     </ul>
 </nav>
 <div class="main_container">
-    <h1>Tables - loops</h1>
-<h2>Get method - Multiplication table</h2>
+    <div class="main_content">
+        <h1>Tables - loops</h1>
+        <h2>Get method - Multiplication table</h2>
 
-<form action="/" method="GET">
-    <label for="row">Enter row value</label>
-    <input type="text" value="" name="row">
-    <label for="row">Enter column value</label>
-    <input type="text" value="" name="column">
-    <input type="submit" class="btn">
-</form>
+        <form action="/" method="GET">
+            <label for="row">Enter row value</label>
+            <input type="text" value="" name="row">
+            <label for="row">Enter column value</label>
+            <input type="text" value="" name="column">
+            <input type="submit" class="btn">
+        </form>
 
 
-<?php
-$column = $_GET['column'] ?? 0;
-$row = $_GET['row'] ?? 0;
+        <?php
+        $column = $_GET['column'] ?? 0;
+        $row = $_GET['row'] ?? 0;
 
-echo '<table style="text-align: right;">';
-for ($i = 1; $i <= $row; $i++) {
-    echo '<tr>';
-    for ($j = 1; $j <= $column; $j++) {
-        echo '<td>' . $i * $j, '</td>';
-    }
-    echo '</tr>';
-}
-echo '</table>';
+        echo '<table style="text-align: right;">';
+        for ($i = 1; $i <= $row; $i++) {
+            echo '<tr>';
+            for ($j = 1; $j <= $column; $j++) {
+                echo '<td>' . $i * $j, '</td>';
+            }
+            echo '</tr>';
+        }
+        echo '</table>';
 
-?>
+        ?>
 
-<h2>Post method - Cyclic matrix</h2>
-<form action="/" method="POST">
-    <label for="row">Enter row value</label>
-    <input type="text" value="" name="row">
-    <label for="row">Enter column value</label>
-    <input type="text" value="" name="column">
-    <input type="submit" class="btn">
-</form>
+        <h2>Post method - Cyclic matrix</h2>
+        <form action="/" method="POST">
+            <label for="row">Enter row value</label>
+            <input type="text" value="" name="row">
+            <label for="row">Enter column value</label>
+            <input type="text" value="" name="column">
+            <input type="submit" class="btn">
+        </form>
 
-<?php
-$columnPost = $_POST['column'] ?? 0;
-$rowPost = $_POST['row'] ?? 0;
+        <?php
+        $columnPost = $_POST['column'] ?? 0;
+        $rowPost = $_POST['row'] ?? 0;
 
-echo '<table style="text-align: right;">';
+        echo '<table style="text-align: right;">';
 
-for ($i = 1; $i < $rowPost + 1; $i++) {
-    echo '<tr>';
-    for ($j = 1; $j < $columnPost + 1; $j++) {
-        echo '<td>' . $j, '</td>';
-    }
-    echo '</tr>';
-}
-echo '</table>';
+        for ($i = 1; $i < $rowPost + 1; $i++) {
+            echo '<tr>';
+            for ($j = 1; $j < $columnPost + 1; $j++) {
+                echo '<td>' . $j, '</td>';
+            }
+            echo '</tr>';
+        }
+        echo '</table>';
 
-?>
-
+        ?>
+    </div>
 </div>
+
+
 <?php include 'includes/footer.php'; ?>
 </body>
 <script src="script.js"></script>

@@ -236,7 +236,14 @@ input {
 }
 
 .main_container {
+    width: 100%;
     padding: 2rem 0;
+
+}
+
+.main_content {
+    width: 80%;
+    margin: 0 auto;
     display: grid;
     justify-content: center;
     align-content: center;
