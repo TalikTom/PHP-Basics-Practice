@@ -44,7 +44,7 @@
         $positionRow = 0;
         $positionColumn = 0;
 
-
+        
 
         for ($i = $positionColumn; $i<$endColumn; $i++) {
             echo $matrix[$positionRow][$positionColumn];
@@ -54,6 +54,16 @@
         for ($i = $positionRow; $i<$endRow; $i++) {
             echo $matrix[$i][$endColumn];
             $endColumn--;
+        }
+
+        for ($i=$endColumn; $i>$positionColumn; $i){
+            echo $matrix[$endRow][$i];
+            $endRow--;
+        }
+
+        for($i; $i>=$positionRow;$i--){
+            echo $matrix[$i][$positionColumn];
+            $positionColumn++;
         }
 
 
