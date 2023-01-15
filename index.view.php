@@ -38,6 +38,25 @@
         <?php
         $column = $_GET['column'] ?? 0;
         $row = $_GET['row'] ?? 0;
+        $matrix = [];
+        $endRow = $row - 1;
+        $endColumn = $column - 1;
+        $positionRow = 0;
+        $positionColumn = 0;
+
+
+
+        for ($i = $positionColumn; $i<$endColumn; $i++) {
+            echo $matrix[$positionRow][$positionColumn];
+            $positionRow++;
+        }
+
+        for ($i = $positionRow; $i<$endRow; $i++) {
+            echo $matrix[$i][$endColumn];
+            $endColumn--;
+        }
+
+
 
         echo '<table style="text-align: right;">';
         for ($i = 1; $i <= $row; $i++) {
