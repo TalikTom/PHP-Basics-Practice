@@ -21,6 +21,8 @@
         <li><a href="three.php">Three</a></li>
     </ul>
 </nav>
+<div class="main_container">
+    <h1>Tables - loops</h1>
 <h2>Get method - Multiplication table</h2>
 
 <form action="/" method="GET">
@@ -74,7 +76,7 @@ echo '</table>';
 
 ?>
 
-
+</div>
 <?php include 'includes/footer.php'; ?>
 </body>
 <script src="script.js"></script>

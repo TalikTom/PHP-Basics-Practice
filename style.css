@@ -124,9 +124,6 @@ body {
     background: #112c44;
     color: #fff;
     font-family: "Roboto Condensed", sans-serif;
-    display: grid;
-    justify-content: center;
-    align-content: center;
 }
 
 h1 {
@@ -135,9 +132,8 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     position: relative;
-    top: -0.6em;
     font-size: 2.4em;
-    padding: 0 0 0 0.5em;
+    padding: 2rem 0;
     margin: 0;
 }
 
@@ -190,12 +186,16 @@ footer {
 
 .nav_container {
     width: 100%;
+    background-color: #081e31;
 }
 
 .nav_bar {
     display: flex;
     gap: 1rem;
     padding: 3rem 0;
+    width: 80%;
+    max-width: 960px;
+    margin: 0 auto;
 }
 .nav_bar li{
     list-style: none;
@@ -233,4 +233,11 @@ input {
     border-radius: 1rem;
     border: none;
     padding: .5rem;
+}
+
+.main_container {
+    padding: 2rem 0;
+    display: grid;
+    justify-content: center;
+    align-content: center;
 }

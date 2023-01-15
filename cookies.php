@@ -43,7 +43,8 @@ $message2 = 'This name was stored in a cookie: ' . $name;
         <li><a href="three.php">Three</a></li>
     </ul>
 </nav>
-<h1>Welcome</h1>
+<div class="main_container">
+<h1>Cookies</h1>
 <p>
     <?= "$message <br>" ?>
     <?= $message2 ?>
@@ -63,6 +64,6 @@ $message2 = 'This name was stored in a cookie: ' . $name;
 
     <input class="btn" type="submit" value="Save">
 </form>
-
+</div>
 </body>
 </html>
