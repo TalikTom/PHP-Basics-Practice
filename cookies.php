@@ -36,6 +36,13 @@ $message2 = 'This name was stored in a cookie: ' . $name;
     <title>Document</title>
 </head>
 <body class="<?= htmlspecialchars($scheme) ?>">
+<nav class="nav_container">
+    <ul class="nav_bar">
+        <li><a href="/">Home</a></li>
+        <li><a href="/cookies.php">Cookies</a></li>
+        <li><a href="three.php">Three</a></li>
+    </ul>
+</nav>
 <h1>Welcome</h1>
 <p>
     <?= "$message <br>" ?>
@@ -54,7 +61,7 @@ $message2 = 'This name was stored in a cookie: ' . $name;
     <label for="name">Enter a name</label>
     <input type="text" name="name" id="name" >
 
-    <input type="submit" value="Save">
+    <input class="btn" type="submit" value="Save">
 </form>
 
 </body>

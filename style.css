@@ -219,3 +219,18 @@ footer {
     background-color: #112c44;
     color: white;
 }
+
+.btn {
+    background-color: indianred;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    color: #112c44;
+
+}
+
+input {
+    border-radius: 1rem;
+    border: none;
+    padding: .5rem;
+}

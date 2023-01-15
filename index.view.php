@@ -28,7 +28,7 @@
     <input type="text" value="" name="row">
     <label for="row">Enter column value</label>
     <input type="text" value="" name="column">
-    <input type="submit">
+    <input type="submit" class="btn">
 </form>
 
 
@@ -54,7 +54,7 @@ echo '</table>';
     <input type="text" value="" name="row">
     <label for="row">Enter column value</label>
     <input type="text" value="" name="column">
-    <input type="submit">
+    <input type="submit" class="btn">
 </form>
 
 <?php
