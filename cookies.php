@@ -12,7 +12,9 @@ $options = ['light', 'dark'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $color = $_POST['color'];
+    $name = $_POST['name'];
     setcookie('color', $color, time() + 60 * 60, '/', '', false, true);
+    setcookie('name', $name);
 }
 
 $scheme = (in_array($color, $options)) ? $color : 'dark';
@@ -39,14 +41,19 @@ $message2 = 'This name was stored in a cookie: ' . $name;
     <?= "$message <br>" ?>
     <?= $message2 ?>
 
-    
+
 <p>Refresh this <a href="/cookies.php">Page</a> to see increase in views</p>
 </p>
+
 <form action="/cookies.php" method="POST">
+    <label for="color">Pick a theme</label>
     <select name="color" id="color">
         <option value="dark">Dark</option>
         <option value="light">Light</option>
     </select><br>
+    <label for="name">Enter a name</label>
+    <input type="text" name="name" id="name" >
+
     <input type="submit" value="Save">
 </form>
 
