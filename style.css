@@ -235,6 +235,16 @@ input {
     padding: .5rem;
 }
 
+@media (max-width: 1010px) {
+    input {
+        padding: .3rem;
+        width: 10%;
+    }
+    .btn {
+        padding: .3rem;
+    }
+}
+
 .main_container {
     width: 100%;
     padding: 2rem 0;
