@@ -72,42 +72,49 @@
         $val = 1;
 
 
-        while ($val <= $columnPost * $rowPost) {
+        while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
 
             for ($i = $endColumn; $i >= $beginningColumn; $i--) {
-                $matrix[$beginningRow][$i] = $val++;
-                $endRow--;
+                $matrix[$endRow][$i] = $val++;
             }
+            $endRow--;
+
 
             for ($i = $endRow; $i >= $beginningRow; $i--) {
-                $matrix[$i][$beginningColumn] += $val;
-                $beginningColumn++;
+                $matrix[$i][$beginningColumn] = $val++;
             }
+            $beginningColumn++;
+
+
+            for ($i = $beginningColumn; $i <= $endColumn; $i++) {
+                $matrix[$beginningRow][$i] = $val++;
+            }
+            $beginningRow++;
+
+
+            for ($i = $beginningRow; $i <= $endRow; $i++) {
+                $matrix[$i][$endColumn] = $val++;
+            }
+            $endColumn--;
+
 
         }
-        //
-        //        for ($i=$endColumn; $i>$positionColumn; $i){
-        //            echo $matrix[$endRow][$i];
-        //            $endRow--;
-        //        }
-        //
-        //        for($i=$endRow; $i>=$positionRow;$i--){
-        //            echo $matrix[$i][$positionColumn];
-        //            $positionColumn++;
-        //        }
+
 
         echo '<table style="text-align: right;">';
 
-            for ($i = 0; $i < $rowPost; $i++) {
+        for ($i = 0; $i < $rowPost;$i++) {
 
-                echo '<tr>';
+            echo '<tr>';
 
-                    for ($j = 0; $j < $columnPost; $j++) {
-                        echo '<td>' . $matrix[$i][$j], '</td>';
-                    }
+            for ($j = 0; $j < $columnPost;$j++) {
+                echo '<td>' . $matrix[$i][$j], '</td>';
 
-                echo '</tr>';
             }
+
+            echo '</tr>';
+
+        }
 
         echo '</table>';
 
