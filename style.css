@@ -233,12 +233,32 @@ input {
     border-radius: 1rem;
     border: none;
     padding: .5rem;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+    flex: 1;
+
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
 }
 
 @media (max-width: 1010px) {
     input {
         padding: .3rem;
-        width: 10%;
     }
     .btn {
         padding: .3rem;

@@ -52,12 +52,12 @@
 
         ?>
 
-        <h2>Post method - Cyclic matrix</h2>
+        <h2>Post method - Spiral matrix</h2>
         <form action="/" method="POST">
             <label for="row">Enter row value</label>
-            <input type="text" value="" name="row">
+            <input type="number" value="" name="row" max="10" min="2">
             <label for="row">Enter column value</label>
-            <input type="text" value="" name="column">
+            <input type="number" value="" name="column" max="10" min="2">
             <input type="submit" class="btn">
         </form>
 
