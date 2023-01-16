@@ -60,6 +60,10 @@ $message2 = 'This name was stored in a cookie: ' . $name;
         <option value="dark">Dark</option>
         <option value="light">Light</option>
     </select><br>
+    <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
     <label for="name">Enter a name</label>
     <input type="text" name="name" id="name" >
 
