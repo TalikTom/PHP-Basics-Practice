@@ -355,3 +355,14 @@ tr,
 td{
     text-align: right;
 }
+
+td {
+    opacity: 0;
+    animation-name: example;
+    animation-duration: 20s;
+}
+
+@keyframes example {
+    from {opacity: 0;}
+    to {opacity: 100;}
+}
