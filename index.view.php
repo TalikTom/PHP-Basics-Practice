@@ -28,9 +28,9 @@
 
         <form action="/" method="GET">
             <label for="row">Enter row value</label>
-            <input type="text" value="" name="row">
+            <input type="number" value="" name="row" placeholder="1-10" max="10" min="1">
             <label for="row">Enter column value</label>
-            <input type="text" value="" name="column">
+            <input type="number" value="" name="column" placeholder="1-10" max="10" min="1">
             <input type="submit" class="btn">
         </form>
 
@@ -55,9 +55,9 @@
         <h2>Post method - Spiral matrix</h2>
         <form action="/" method="POST">
             <label for="row">Enter row value</label>
-            <input type="number" value="" name="row" max="10" min="2">
+            <input type="number" value="" name="row" max="10" min="2" placeholder="2-10">
             <label for="row">Enter column value</label>
-            <input type="number" value="" name="column" max="10" min="2">
+            <input type="number" value="" name="column" max="10" min="2" placeholder="2-10">
             <input type="submit" class="btn">
         </form>
 
