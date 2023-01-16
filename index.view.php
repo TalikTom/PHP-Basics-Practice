@@ -52,7 +52,7 @@
 
         ?>
 
-        <h2>Post method - Spiral matrix</h2>
+        <h2>Post method - Spiral matrix - Bottom/right start</h2>
         <form action="/" method="POST">
             <label for="row">Enter row value</label>
             <input type="number" value="" name="row" max="10" min="2" placeholder="2-10">
@@ -62,6 +62,7 @@
         </form>
 
         <?php
+
         $columnPost = $_POST['column'] ?? 0;
         $rowPost = $_POST['row'] ?? 0;
         $matrix = [];
@@ -73,6 +74,7 @@
 
 
         while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
+
 
             for ($i = $endColumn; $i >= $beginningColumn; $i--) {
                 $matrix[$endRow][$i] = $val++;
@@ -103,11 +105,11 @@
 
         echo '<table>';
 
-        for ($i = 0; $i < $rowPost;$i++) {
+        for ($i = 0; $i < $rowPost; $i++) {
 
             echo '<tr>';
 
-            for ($j = 0; $j < $columnPost;$j++) {
+            for ($j = 0; $j < $columnPost; $j++) {
                 echo '<td>' . $matrix[$i][$j], '</td>';
 
             }
@@ -119,6 +121,75 @@
         echo '</table>';
 
         ?>
+
+        <h2>Post method - Spiral matrix - Top/Left start</h2>
+        <form action="/" method="POST">
+            <label for="row">Enter row value</label>
+            <input type="number" value="" name="row2" max="10" min="2" placeholder="2-10">
+            <label for="row">Enter column value</label>
+            <input type="number" value="" name="column2" max="10" min="2" placeholder="2-10">
+            <input type="submit" class="btn">
+        </form>
+
+        <?php
+
+        $columnPost = $_POST['column2'] ?? 0;
+        $rowPost = $_POST['row2'] ?? 0;
+        $matrix = [];
+        $endRow = $rowPost - 1;
+        $endColumn = $columnPost - 1;
+        $beginningRow = 0;
+        $beginningColumn = 0;
+        $val = 1;
+
+
+        while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
+
+
+            for ($i = $beginningColumn; $i <= $endColumn; $i++) {
+                $matrix[$beginningRow][$i] = $val++;
+            }
+            $beginningRow++;
+
+
+            for ($i = $beginningRow; $i <= $endRow; $i++) {
+                $matrix[$i][$endColumn] = $val++;
+            }
+            $endColumn--;
+
+            for ($i = $endColumn; $i >= $beginningColumn; $i--) {
+                $matrix[$endRow][$i] = $val++;
+            }
+            $endRow--;
+
+            for ($i = $endRow; $i >= $beginningRow; $i--) {
+                $matrix[$i][$beginningColumn] = $val++;
+            }
+            $beginningColumn++;
+
+
+        }
+
+
+        echo '<table>';
+
+        for ($i = 0; $i < $rowPost; $i++) {
+
+            echo '<tr>';
+
+            for ($j = 0; $j < $columnPost; $j++) {
+                echo '<td>' . $matrix[$i][$j], '</td>';
+
+            }
+
+            echo '</tr>';
+
+        }
+
+        echo '</table>';
+
+        ?>
+
     </div>
 </div>
 
