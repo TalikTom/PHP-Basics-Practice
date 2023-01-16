@@ -59,7 +59,7 @@
             }
             $beginningColumn++;
 
-            if ($val >= $rowPost*$columnPost) {
+            if ($val > $rowPost*$columnPost) {
                 break;
             }
 
@@ -68,7 +68,7 @@
             }
             $beginningRow++;
 
-            if ($val >= $rowPost*$columnPost) {
+            if ($val > $rowPost*$columnPost) {
                 break;
             }
 
@@ -135,7 +135,7 @@
             }
             $endColumn--;
 
-            if ($val >= $rowPost*$columnPost) {
+            if ($val > $rowPost*$columnPost) {
                 break;
             }
 
@@ -144,7 +144,7 @@
             }
             $endRow--;
 
-            if ($val >= $rowPost*$columnPost) {
+            if ($val > $rowPost*$columnPost) {
                 break;
             }
 
