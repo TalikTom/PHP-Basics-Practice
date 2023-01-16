@@ -1,4 +1,3 @@
-
 /* Box sizing rules */
 *,
 *::before,
@@ -43,11 +42,10 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture,
-svg{
+svg {
     max-width: 100%;
     display: block;
 }
-
 
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
@@ -161,7 +159,14 @@ th {
     border: 1px solid white;
 }
 
+a {
+    color: #e0673a;
+    text-decoration: none;
+}
+a:hover {
+    color: #21af26;
 
+}
 
 p {
     margin-bottom: 1.6em;
@@ -197,17 +202,19 @@ footer {
     max-width: 960px;
     margin: 0 auto;
 }
-.nav_bar li{
+
+.nav_bar li {
     list-style: none;
 }
-.nav_bar li a{
+
+.nav_bar li a {
     list-style: none;
     text-decoration: none;
     color: white;
 }
 
-.nav_bar li a:hover{
-   color: gray;
+.nav_bar li a:hover {
+    color: gray;
 }
 
 .light {
@@ -244,7 +251,7 @@ input::-webkit-inner-spin-button {
 }
 
 input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
+    -moz-appearance: textfield; /* Firefox */
     flex: 1;
 
 }
@@ -260,8 +267,13 @@ form {
     input {
         padding: .3rem;
     }
+
     .btn {
         padding: .3rem;
+    }
+
+    .cookies_form {
+        flex-direction: column;
     }
 }
 
@@ -352,7 +364,7 @@ input:checked + .slider:before {
 table,
 tbody,
 tr,
-td{
+td {
     text-align: right;
 }
 
@@ -364,6 +376,10 @@ td {
 }
 
 @keyframes example {
-    from {opacity: 0;}
-    to {opacity: 100;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
 }

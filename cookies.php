@@ -54,7 +54,7 @@ $message2 = 'This name was stored in a cookie: ' . $name;
 <p>Refresh this <a href="/cookies.php">Page</a> to see increase in views</p>
 </p>
 
-<form action="/cookies.php" method="POST">
+<form class= "cookies_form" action="/cookies.php" method="POST">
     <label for="color">Pick a theme</label>
     <select name="color" id="color">
         <option value="dark">Dark</option>
