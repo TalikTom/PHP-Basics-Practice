@@ -6,11 +6,12 @@ setcookie('counter', $counter);
 $name = $_COOKIE['name'] ?? 0;
 setcookie('name', $name);
 $name = 'Luka';
-
+$slider = '';
 $color = $_COOKIE['color'] ?? null;
 $options = ['light', 'dark'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $slider = (isset($_POST['slider']) and $_POST['slider'] == true) ? true : false;
     $color = $_POST['color'];
     $name = $_POST['name'];
     setcookie('color', $color, time() + 60 * 60, '/', '', false, true);
@@ -18,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $scheme = (in_array($color, $options)) ? $color : 'dark';
-
 
 $message = 'Page views: ' . $counter;
 $message2 = 'This name was stored in a cookie: ' . $name;
@@ -35,7 +35,7 @@ $message2 = 'This name was stored in a cookie: ' . $name;
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body class="<?= htmlspecialchars($scheme) ?>">
+<body class="<?= htmlspecialchars($scheme) ?> <?= $slider ? 'light' : 'dark' ?>" >
 <nav class="nav_container">
     <ul class="nav_bar">
         <li><a href="/">Home</a></li>
@@ -61,7 +61,7 @@ $message2 = 'This name was stored in a cookie: ' . $name;
         <option value="light">Light</option>
     </select><br>
     <label class="switch">
-        <input type="checkbox">
+        <input type="checkbox" name="slider" value="true">
         <span class="slider round"></span>
     </label>
     <label for="name">Enter a name</label>

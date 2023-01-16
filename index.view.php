@@ -40,7 +40,7 @@
         $row = $_GET['row'] ?? 0;
 
 
-        echo '<table style="text-align: right;">';
+        echo '<table>';
         for ($i = 1; $i <= $row; $i++) {
             echo '<tr>';
             for ($j = 1; $j <= $column; $j++) {
@@ -101,7 +101,7 @@
         }
 
 
-        echo '<table style="text-align: right;">';
+        echo '<table>';
 
         for ($i = 0; $i < $rowPost;$i++) {
 

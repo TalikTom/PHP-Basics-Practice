@@ -157,7 +157,7 @@ table {
 
 td,
 th {
-    padding: 0.3em 2em 0.3em 0;
+    padding: 0.5rem 1rem;
     border: 1px solid white;
 }
 
@@ -347,4 +347,11 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+table,
+tbody,
+tr,
+td{
+    text-align: right;
 }
