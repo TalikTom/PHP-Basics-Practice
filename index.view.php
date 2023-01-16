@@ -23,6 +23,7 @@
 </nav>
 <div class="main_container">
     <div class="main_content">
+        <h1>Tables - loops</h1>
 
         <h2>Post method - Spiral matrix - Bottom/right start</h2>
         <form action="/" method="POST">
@@ -162,7 +163,7 @@
 
         ?>
 
-        <h1>Tables - loops</h1>
+
         <h2>Get method - Multiplication table</h2>
 
         <form action="/" method="GET">
