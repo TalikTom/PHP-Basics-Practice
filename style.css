@@ -359,7 +359,8 @@ td{
 td {
     opacity: 0;
     animation-name: example;
-    animation-duration: 20s;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes example {
