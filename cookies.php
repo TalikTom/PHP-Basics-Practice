@@ -11,7 +11,7 @@ $color = $_COOKIE['color'] ?? null;
 $options = ['light', 'dark'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $slider = (isset($_POST['slider']) and $_POST['slider'] == true) ? true : false;
+//    $slider = (isset($_POST['slider']) and $_POST['slider'] == true) ? true : false;
     $color = $_POST['color'];
     $name = $_POST['name'];
     setcookie('color', $color, time() + 60 * 60, '/', '', false, true);
@@ -35,40 +35,39 @@ $message2 = 'This name was stored in a cookie: ' . $name;
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body class="<?= htmlspecialchars($scheme) ?> <?= $slider ? 'light' : 'dark' ?>" >
+
+<body class="<?= htmlspecialchars($scheme) ?>">
 <nav class="nav_container">
     <ul class="nav_bar">
         <li><a href="/">Home</a></li>
         <li><a href="/cookies.php">Cookies</a></li>
-        <li><a href="three.php">Three</a></li>
+        <li><a href="/three.php">Three</a></li>
     </ul>
 </nav>
 <div class="main_container">
     <div class="main_content">
-<h1>Cookies</h1>
-<p>
-    <?= "$message <br>" ?>
-    <?= $message2 ?>
+        <h1>Cookies</h1>
+        <p><?= "$message <br>" ?></p>
+        <p><?= "$message2 <br>" ?></p>
+
+        <p>Refresh this <a href="/cookies.php">Page</a> to see increase in views</p>
 
 
-<p>Refresh this <a href="/cookies.php">Page</a> to see increase in views</p>
-</p>
+            <form class= "cookies_form" action="/cookies.php" method="POST">
+                <label for="color">Pick a theme</label>
+                <select name="color" id="color">
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                </select><br>
+            <!--    <label class="switch">-->
+            <!--        <input type="checkbox" name="slider" value="true">-->
+            <!--        <span class="slider round"></span>-->
+            <!--    </label>-->
+                <label for="name">Enter a name</label>
+                <input type="text" name="name" id="name" >
 
-<form class= "cookies_form" action="/cookies.php" method="POST">
-    <label for="color">Pick a theme</label>
-    <select name="color" id="color">
-        <option value="dark">Dark</option>
-        <option value="light">Light</option>
-    </select><br>
-    <label class="switch">
-        <input type="checkbox" name="slider" value="true">
-        <span class="slider round"></span>
-    </label>
-    <label for="name">Enter a name</label>
-    <input type="text" name="name" id="name" >
-
-    <input class="btn" type="submit" value="Save">
-</form>
+                <input class="btn" type="submit" value="Save">
+            </form>
     </div>
 </div>
 </body>
