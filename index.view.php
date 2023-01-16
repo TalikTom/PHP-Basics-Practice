@@ -147,23 +147,24 @@
 
 
             for ($i = $beginningColumn; $i <= $endColumn; $i++) {
-                $matrix[$beginningRow][$i] = '<td style="animation-delay:' . ($i+30)+5 .'ms;">' . $val++ . '</td>';
+                $matrix[$beginningRow][$i] = '<td style="animation-delay:' . ($val)*5 .'ms;">' . $val++ . '</td>';
+                echo $matrix[$beginningRow][$i];
             }
             $beginningRow++;
 
 
             for ($i = $beginningRow; $i <= $endRow; $i++) {
-                $matrix[$i][$endColumn] = '<td style="animation-delay:' . ($i+30)+5 .'ms;">' . $val++ . '</td>';
+                $matrix[$i][$endColumn] = '<td style="animation-delay:' . ($val)*5 .'ms;">' . $val++ . '</td>';
             }
             $endColumn--;
 
             for ($i = $endColumn; $i >= $beginningColumn; $i--) {
-                $matrix[$endRow][$i] = '<td style="animation-delay:' . ($i+30)+5 .'ms;">' . $val++ . '</td>';
+                $matrix[$endRow][$i] = '<td style="animation-delay:' . ($val)*5 .'ms;">' . $val++ . '</td>';
             }
             $endRow--;
 
             for ($i = $endRow; $i >= $beginningRow; $i--) {
-                $matrix[$i][$beginningColumn] = '<td style="animation-delay:' . ($i+30)+5 .'ms;">' . $val++ . '</td>';
+                $matrix[$i][$beginningColumn] = '<td style="animation-delay:' . ($val)*5 .'ms;">' . $val++ . '</td>';
             }
             $beginningColumn++;
 
