@@ -269,13 +269,11 @@ form {
 }
 
 @media (max-width: 1010px) {
-    input {
-        padding: .3rem;
-    }
 
-    .btn {
-        padding: .3rem;
-    }
+   form {
+    margin-top: 3rem;
+       align-items: center;
+   }
 
     .cookies_form {
         flex-direction: column;
@@ -295,6 +293,14 @@ form {
     /*display: grid;*/
     /*justify-content: center;*/
     /*align-content: center;*/
+}
+
+@media (max-width: 900px) {
+    .main_content{
+
+
+    text-align: center;
+    }
 }
 
 .btn:active {
@@ -508,7 +514,7 @@ select {
 
 @media (max-width: 900px) {
     .wrapper {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     h1 {
         font-size: 1.5rem;
