@@ -305,6 +305,48 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                 }
             }
 
+            if ($beginningPoint === 'top-right' && $direction ==='clockf') {
+                while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
+
+
+                    for ($i = $beginningColumn; $i <= $endColumn; $i++) {
+                        if ($i === 0) {
+                            $matrix[$i][$endRow] = '<td class= "beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+                        } else {
+                            $matrix[$i][$endRow] = '<td class="top" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+                        }
+
+
+                    }
+                    $endRow--;
+//
+                    for ($i = $endRow; $i >= $beginningRow; $i--) {
+                        $matrix[$endColumn][$i] = '<td class="right" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+                    }
+                    $endColumn--;
+
+                    if ($val > $rowPost * $columnPost) {
+                        break;
+                    }
+//
+                    for ($i = $endColumn; $i >= $beginningColumn; $i--) {
+                        $matrix[$i][$beginningRow] = '<td class="bottom" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+                    }
+                    $beginningRow++;
+////
+                    if ($val > $rowPost * $columnPost) {
+                        break;
+                    }
+
+                    for ($i = $beginningRow; $i <= $endRow; $i++) {
+                        $matrix[$beginningColumn][$i] = '<td class="left" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+                    }
+                    $beginningColumn++;
+
+
+                }
+            }
+
             
 
             if ($beginningPoint === 'top-left') {
