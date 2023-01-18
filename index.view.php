@@ -18,7 +18,7 @@
     <ul class="nav_bar">
         <li><a href="/">Home</a></li>
         <li><a href="/cookies.php">Cookies</a></li>
-        <li><a href="three.php">Three</a></li>
+        <li><a href="/multiplication.php">Multiplication</a></li>
     </ul>
 </nav>
 <div class="main_container">
@@ -241,110 +241,6 @@
 
         ?>
 
-        <h2>Post method - Spiral matrix - Top/Left start</h2>
-        <form action="/" method="POST">
-            <label for="row">Enter row value</label>
-            <input type="number" value="" name="row2" max="10" min="2" placeholder="2-10" required>
-            <label for="row">Enter column value</label>
-            <input type="number" value="" name="column2" max="10" min="2" placeholder="2-10" required>
-            <input type="submit" class="btn">
-        </form>
-
-        <?php
-
-        $columnPost = $_POST['column2'] ?? 0;
-        $rowPost = $_POST['row2'] ?? 0;
-        $matrix = [];
-        $endRow = $rowPost - 1;
-        $endColumn = $columnPost - 1;
-        $beginningRow = 0;
-        $beginningColumn = 0;
-        $val = 1;
-
-
-        while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
-
-
-            for ($i = $beginningColumn; $i <= $endColumn; $i++) {
-                $matrix[$beginningRow][$i] = '<td style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
-            }
-            $beginningRow++;
-
-
-            for ($i = $beginningRow; $i <= $endRow; $i++) {
-                $matrix[$i][$endColumn] = '<td style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
-            }
-            $endColumn--;
-
-            if ($val > $rowPost * $columnPost) {
-                break;
-            }
-
-            for ($i = $endColumn; $i >= $beginningColumn; $i--) {
-                $matrix[$endRow][$i] = '<td style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
-            }
-            $endRow--;
-
-            if ($val > $rowPost * $columnPost) {
-                break;
-            }
-
-            for ($i = $endRow; $i >= $beginningRow; $i--) {
-                $matrix[$i][$beginningColumn] = '<td style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
-            }
-            $beginningColumn++;
-
-
-        }
-
-
-        echo '<table>';
-
-        for ($i = 0; $i < $rowPost; $i++) {
-
-            echo '<tr>';
-
-            for ($j = 0; $j < $columnPost; $j++) {
-                echo $matrix[$i][$j];
-
-            }
-
-            echo '</tr>';
-
-        }
-
-        echo '</table>';
-
-        ?>
-
-
-        <h2>Get method - Multiplication table</h2>
-
-        <form action="/" method="GET">
-            <label for="row">Enter row value</label>
-            <input type="number" value="" name="row" placeholder="1-10" max="10" min="1" required>
-            <label for="row">Enter column value</label>
-            <input type="number" value="" name="column" placeholder="1-10" max="10" min="1" required>
-            <input type="submit" class="btn">
-        </form>
-
-
-        <?php
-        $column = $_GET['column'] ?? 0;
-        $row = $_GET['row'] ?? 0;
-
-
-        echo '<table>';
-        for ($i = 1; $i <= $row; $i++) {
-            echo '<tr>';
-            for ($j = 1; $j <= $column; $j++) {
-                echo '<td>' . $i * $j, '</td>';
-            }
-            echo '</tr>';
-        }
-        echo '</table>';
-
-        ?>
 
     </div>
 </div>

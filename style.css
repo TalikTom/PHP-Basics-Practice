@@ -263,6 +263,7 @@ form {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    margin-bottom: 3rem;
 }
 
 @media (max-width: 1010px) {
@@ -288,6 +289,7 @@ form {
 .main_content {
     width: 80%;
     margin: 0 auto;
+
     /*display: grid;*/
     /*justify-content: center;*/
     /*align-content: center;*/
@@ -368,6 +370,9 @@ tbody,
 tr,
 td {
     text-align: center;
+    z-index: 0 !important;
+    margin: 0 auto;
+
 }
 
 td {
@@ -418,11 +423,11 @@ select {
 
 
 .right {
-    position: relative;
+    /*position: relative;*/
 }
 
 .right:after {
-    z-index: 1100;
+    z-index: 1500;
     content: "";
     position: absolute;
     right: -20%;
@@ -435,11 +440,11 @@ select {
 }
 
 .top {
-    position: relative;
+    /*position: relative;*/
 }
 
 .top:after {
-    z-index: 1100;
+    z-index: 1400;
     content: "";
     position: absolute;
     top: -2px;
@@ -454,11 +459,11 @@ select {
 
 
 .left {
-    position: relative;
+    /*position: relative;*/
 }
 
 .left:after {
-    z-index: 1100;
+    z-index: 1300;
     content: "";
     position: absolute;
     left: 0;
@@ -472,7 +477,7 @@ select {
 }
 
 .bottom {
-    position: relative;
+    /*position: relative;*/
 }
 
 .bottom:after {

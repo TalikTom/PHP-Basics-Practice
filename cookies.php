@@ -41,7 +41,7 @@ $message2 = 'This name was stored in a cookie: ' . $name;
     <ul class="nav_bar">
         <li><a href="/">Home</a></li>
         <li><a href="/cookies.php">Cookies</a></li>
-        <li><a href="/three.php">Three</a></li>
+        <li><a href="/multiplication.php">Multiplication</a></li>
     </ul>
 </nav>
 <div class="main_container">
