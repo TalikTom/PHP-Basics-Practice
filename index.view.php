@@ -116,7 +116,7 @@
                 }
 //
                 for ($i = $endColumn; $i >= $beginningColumn; $i--) {
-                    $matrix[$beginningRow][$i] = '<td class="left" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+                    $matrix[$beginningRow][$i] = '<td class="right" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
                 }
                 $beginningRow++;
 ////
