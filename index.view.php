@@ -164,7 +164,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
                     for ($i = $beginningRow; $i <= $endRow; $i++) {
 
-                        $matrix[$endColumn][$i] = '<td class="top" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+                        $matrix[$endColumn][$i] = '<td class="left" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
 
                     }
                     $endColumn--;
