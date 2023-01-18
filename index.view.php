@@ -1,6 +1,8 @@
 <?php
+require 'functions.php';
 $beginningPoint = $_POST['beginningPoint'] ?? 0;
 $columnPost = $_POST['column'] ?? 0;
+$direction = $_POST['direction'] ?? 0;
 $rowPost = $_POST['row'] ?? 0;
 $matrix = [];
 $endRow = $rowPost - 1;
@@ -9,6 +11,7 @@ $beginningRow = 0;
 $beginningColumn = 0;
 $val = 1;
 $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -56,6 +59,13 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     <option value="bottom-right" <?php if(isset($beginningPoint) && $beginningPoint && $_POST['beginningPoint']=='bottom-right') echo 'selected="selected"'?>>Bottom-right</option>
                     <option value="bottom-left" <?php if(isset($beginningPoint) && $beginningPoint && $_POST['beginningPoint']=='bottom-left') echo 'selected="selected"'?>>Bottom-left</option>
                 </select>
+                <label for="direction">Choose direction</label>
+                <select name="direction" id="direction">
+                    <option value="clockf" <?php if(isset($direction) && $beginningPoint && $_POST['direction']=='clockf') echo 'selected="selected"'?>>Clockwise</option>
+                    <option value="clockr" <?php if(isset($direction) && $beginningPoint && $_POST['direction']=='clockr') echo 'selected="selected"'?>>Counterclockwise</option>
+                </select>
+
+
 
                 <input type="submit" class="btn">
 
