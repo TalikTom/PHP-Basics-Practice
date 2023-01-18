@@ -75,7 +75,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
             <?php
 
 
-            if ($beginningPoint === 'bottom-right') {
+            if ($beginningPoint === 'bottom-right' && $direction === 'clockf') {
                 while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
 
 
@@ -123,6 +123,57 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
                 }
             }
+
+            if ($beginningPoint === 'bottom-right' && $direction === 'clockr') {
+                while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
+
+
+                    for ($i = $endColumn; $i >= $beginningColumn; $i--) {
+                        if ($i === $columnPost - 1) {
+                            $matrix[$i][$endRow] = '<td class="beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+                        } else {
+                            $matrix[$i][$endRow] = '<td class="bottom" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+                        }
+
+                    }
+                    $endRow--;
+
+
+                    for ($i = $endRow; $i >= $beginningRow; $i--) {
+
+                        $matrix[$beginningColumn][$i] = '<td class="right" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+
+                    }
+
+                    $beginningColumn++;
+
+                    if ($val > $rowPost * $columnPost) {
+                        break;
+                    }
+//
+                    for ($i = $beginningColumn; $i <= $endColumn; $i++) {
+
+                        $matrix[$i][$beginningRow] = '<td class="top" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+
+                    }
+                    $beginningRow++;
+
+                    if ($val > $rowPost * $columnPost) {
+                        break;
+                    }
+
+                    for ($i = $beginningRow; $i <= $endRow; $i++) {
+
+                        $matrix[$endColumn][$i] = '<td class="top" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+
+                    }
+                    $endColumn--;
+
+
+                }
+            }
+
+
 
             if ($beginningPoint === 'bottom-left') {
                 while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
@@ -249,6 +300,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 
                 }
+
             }
 
 
