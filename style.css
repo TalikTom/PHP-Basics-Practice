@@ -459,7 +459,7 @@ select {
     left: 50%;
     display: block;
     transform: translateY(-50%) translateX(-50%);
-    width: 4px;
+    width: 3px;
     height: 10px;
     background-color: #e0673a;
 
@@ -496,7 +496,7 @@ select {
     left: 50%;
     display: block;
     transform: translateY(50%) translateX(-50%);
-    width: 4px;
+    width: 3px;
     height: 10px;
     background-color: #e0673a;
 
@@ -519,4 +519,26 @@ select {
     h1 {
         font-size: 1.5rem;
     }
+}
+
+@media (max-width: 700px) {
+
+   .bottom:after {
+       width: 3px;
+       height: 5px;
+   }
+    .top:after {
+        width: 3px;
+        height: 5px;
+    }
+    .left:after {
+        width: 5px;
+        height: 3px;
+    }
+    .right:after {
+        width: 5px;
+        height: 3px;
+        right: -20%;
+    }
+
 }
