@@ -51,6 +51,7 @@
 
             for ($i = $endColumn; $i >= $beginningColumn; $i--) {
                 $matrix[$endRow][$i] = '<td class="right" style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
+
             }
             $endRow--;
 
