@@ -378,6 +378,7 @@ td {
     height: 50px;
     width: 50px;
     font-size: 1.5rem;
+    position: relative;
 }
 
 @media (max-width: 700px) {
@@ -421,7 +422,7 @@ select {
 }
 
 .right:after {
-    z-index: 500;
+    z-index: 1100;
     content: "";
     position: absolute;
     right: -20%;
@@ -438,7 +439,7 @@ select {
 }
 
 .top:after {
-    z-index: 500;
+    z-index: 1100;
     content: "";
     position: absolute;
     top: -2px;
@@ -457,7 +458,7 @@ select {
 }
 
 .left:after {
-    z-index: 500;
+    z-index: 1100;
     content: "";
     position: absolute;
     right: -20%;
@@ -475,13 +476,13 @@ select {
 }
 
 .bottom:after {
-    z-index: 500;
+    z-index: 1200;
     content: "";
     position: absolute;
     bottom: -2px;
     left: 50%;
     display: block;
-    transform: translateY(-50%) translateX(-50%);
+    transform: translateY(50%) translateX(-50%);
     width: 4px;
     height: 10px;
     background-color: #e0673a;
