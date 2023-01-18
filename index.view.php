@@ -32,10 +32,18 @@
             <label for="row">Enter column value</label>
             <input type="number" value="" name="column" max="10" min="2" placeholder="2-10" required>
             <input type="submit" class="btn">
+            <label for="beginningPoint">Beginning point</label>
+            <select name="beginningPoint" id="beginningPoint">
+                <option value="top-right">Top-right</option>
+                <option value="top-left">Top-left</option>
+                <option value="bottom-right">Bottom-right</option>
+                <option value="bottom-left">Bottom-left</option>
+            </select>
+
         </form>
 
         <?php
-
+        $beginningPoint = $_POST['beginningPoint'] ?? 0;
         $columnPost = $_POST['column'] ?? 0;
         $rowPost = $_POST['row'] ?? 0;
         $matrix = [];
@@ -44,42 +52,158 @@
         $beginningRow = 0;
         $beginningColumn = 0;
         $val = 1;
+        $options = ['top-right', 'top-left','bottom-right', 'bottom-left'];
+
+        if($beginningPoint ==='bottom-right') {
+            while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
 
 
-        while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
+                for ($i = $endColumn; $i >= $beginningColumn; $i--) {
+                    $matrix[$endRow][$i] = '<td class="right" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
 
+                }
+                $endRow--;
+//
+//                for ($i = $endRow; $i >= $beginningRow; $i--) {
+//                    $matrix[$i][$beginningColumn] = '<td class="top" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+//                }
+//                $beginningColumn++;
+//
+//                if ($val > $rowPost * $columnPost) {
+//                    break;
+//                }
+//
+//                for ($i = $beginningColumn; $i <= $endColumn; $i++) {
+//                    $matrix[$beginningRow][$i] = '<td class="left" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+//                }
+//                $beginningRow++;
+//
+//                if ($val > $rowPost * $columnPost) {
+//                    break;
+//                }
+//
+//                for ($i = $beginningRow; $i <= $endRow; $i++) {
+//                    $matrix[$i][$endColumn] = '<td class="bottom" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+//                }
+//                $endColumn--;
 
-            for ($i = $endColumn; $i >= $beginningColumn; $i--) {
-                $matrix[$endRow][$i] = '<td class="right" style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
 
             }
-            $endRow--;
-
-            for ($i = $endRow; $i >= $beginningRow; $i--) {
-                $matrix[$i][$beginningColumn] = '<td class="top" style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
-            }
-            $beginningColumn++;
-
-            if ($val > $rowPost*$columnPost) {
-                break;
-            }
-
-            for ($i = $beginningColumn; $i <= $endColumn; $i++) {
-                $matrix[$beginningRow][$i] = '<td class="left" style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
-            }
-            $beginningRow++;
-
-            if ($val > $rowPost*$columnPost) {
-                break;
-            }
-
-            for ($i = $beginningRow; $i <= $endRow; $i++) {
-                $matrix[$i][$endColumn] = '<td class="bottom" style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
-            }
-            $endColumn--;
-
-
         }
+
+        if($beginningPoint ==='bottom-left') {
+            while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
+
+
+                for ($i = $beginningColumn; $i <= $endColumn; $i++) {
+                    $matrix[$endRow][$i] = '<td class="right" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+
+                }
+                $endRow--;
+//
+//                for ($i = $endRow; $i >= $beginningRow; $i--) {
+//                    $matrix[$i][$beginningColumn] = '<td class="top" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+//                }
+//                $beginningColumn++;
+//
+//                if ($val > $rowPost * $columnPost) {
+//                    break;
+//                }
+//
+                for ($i = $endColumn; $i >= $beginningColumn; $i--) {
+                    $matrix[$beginningRow][$i] = '<td class="left" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+                }
+                $beginningRow++;
+//
+//                if ($val > $rowPost * $columnPost) {
+//                    break;
+//                }
+//
+//                for ($i = $beginningRow; $i <= $endRow; $i++) {
+//                    $matrix[$i][$endColumn] = '<td class="bottom" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+//                }
+//                $endColumn--;
+
+
+            }
+        }
+
+        if($beginningPoint ==='top-right') {
+            while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
+
+
+                for ($i = $beginningColumn; $i >= $endColumn; $i--) {
+                    $matrix[$endRow][$i] = '<td style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
+                }
+                $beginningRow++;
+
+
+//                for ($i = $beginningRow; $i >= $endRow; $i--) {
+//                    $matrix[$i][$endColumn] = '<td style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
+//                }
+//                $endColumn--;
+//
+//                if ($val > $rowPost*$columnPost) {
+//                    break;
+//                }
+//
+//                for ($i = $endColumn; $i <= $beginningColumn; $i++) {
+//                    $matrix[$endRow][$i] = '<td style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
+//                }
+//                $endRow--;
+//
+//                if ($val > $rowPost*$columnPost) {
+//                    break;
+//                }
+//
+//                for ($i = $endRow; $i <= $beginningRow; $i++) {
+//                    $matrix[$i][$beginningColumn] = '<td style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
+//                }
+//                $beginningColumn++;
+
+
+            }
+        }
+
+        if($beginningPoint ==='top-left') {
+            while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
+
+
+                for ($i = $beginningColumn; $i <= $endColumn; $i++) {
+                    $matrix[$beginningRow][$i] = '<td style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
+                }
+                $beginningRow++;
+
+
+                for ($i = $beginningRow; $i <= $endRow; $i++) {
+                    $matrix[$i][$endColumn] = '<td style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
+                }
+                $endColumn--;
+
+                if ($val > $rowPost*$columnPost) {
+                    break;
+                }
+
+                for ($i = $endColumn; $i >= $beginningColumn; $i--) {
+                    $matrix[$endRow][$i] = '<td style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
+                }
+                $endRow--;
+
+                if ($val > $rowPost*$columnPost) {
+                    break;
+                }
+
+                for ($i = $endRow; $i >= $beginningRow; $i--) {
+                    $matrix[$i][$beginningColumn] = '<td style="animation-delay:' . ($val)*100 .'ms;">' . $val++ . '</td>';
+                }
+                $beginningColumn++;
+
+
+            }
+        }
+
+
+
 
 
         echo '<table>';
@@ -98,6 +222,7 @@
         }
 
         echo '</table>';
+
 
         ?>
 
