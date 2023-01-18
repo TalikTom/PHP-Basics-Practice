@@ -120,7 +120,7 @@
                 $endRow--;
 //
                 for ($i = $endRow; $i >= $beginningRow; $i--) {
-                    $matrix[$i][$endColumn] = '<td class="top" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+                    $matrix[$i][$endColumn] = '<td class="bottom" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
                 }
                 $endColumn--;
 
@@ -138,7 +138,7 @@
                 }
 
                 for ($i = $beginningRow; $i <= $endRow; $i++) {
-                    $matrix[$i][$beginningColumn] = '<td class="bottom" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+                    $matrix[$i][$beginningColumn] = '<td class="top" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
                 }
                 $beginningColumn++;
 
