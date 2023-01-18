@@ -229,7 +229,7 @@ footer {
 
 .btn {
     background-color: #e0673a;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 3rem;
     border-radius: 1rem;
     border: none;
     color: #dcdcdc;
@@ -239,10 +239,10 @@ footer {
 input {
     border-radius: 1rem;
     border: none;
-    padding: .5rem;
-
+    padding: .5rem 2.5rem;
 
 }
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -258,10 +258,12 @@ input[type=number] {
 
 }
 
+
 form {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
     gap: 1rem;
     margin-bottom: 3rem;
 }
@@ -411,7 +413,7 @@ select {
 
     background-color: white;
     border: none;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     margin: 0;
     border-radius: 1rem;
 
@@ -496,4 +498,19 @@ select {
 
 .beginning {
     background-color: #e0673a;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .wrapper {
+        flex-direction: column;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
 }
