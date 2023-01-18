@@ -59,11 +59,11 @@
 
 
                 for ($i = $endColumn; $i >= $beginningColumn; $i--) {
-                    if ($i === $endColumn) {
+                    if ($i === $columnPost-1) {
                         $matrix[$endRow][$i] = '<td style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
-                        echo $endColumn;
+                        echo $columnPost;
                     } else {
-                        $matrix[$endRow][$i] = '<td class="left" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+                        $matrix[$endRow][$i] = '<td class="right" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
                     }
 
                 }
@@ -88,7 +88,7 @@
                     if ($i === $endColumn) {
                         $matrix[$beginningRow][$i] = '<td style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
                     } else {
-                        $matrix[$beginningRow][$i] = '<td class="right" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
+                        $matrix[$beginningRow][$i] = '<td class="left" style="animation-delay:' . ($val) * 100 . 'ms;">' . $val++ . '</td>';
                     }
 
                 }
