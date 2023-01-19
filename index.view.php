@@ -235,10 +235,10 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 
                     for ($i = $endRow ; $i >= $beginningRow; $i--) {
-                        if ($i === 0) {
+                        if ($i === $rowPost-1) {
                             $matrix[$i][$beginningColumn] = '<td class="beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         } else {
-                            $matrix[$i][$beginningColumn]= '<td class="left" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+                            $matrix[$i][$beginningColumn]= '<td class="bottom" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         }
                     }
                     $beginningColumn++;
