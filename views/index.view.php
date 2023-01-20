@@ -1,20 +1,42 @@
 <?php
 require 'functions.php';
+
+$columnPost = '';
+$rowPost = '';
+
+function is_number ($number, int $min = 2, int $max = 10) : bool {
+    return ($number >= $min && $number <= $max);
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $columnPost = $_POST['column'];
+    $rowPost = $_POST['row'];
+    $valid = is_number($columnPost, 2, 10);
+    $endRow = $rowPost - 1;
+    $endColumn = $columnPost - 1;
+    if ($valid) {
+        $message = 'Number is valid';
+    } else {
+        $message = 'Number has to be between 2 and 10';
+    }
+
+
+}
+
 $beginningPoint = $_POST['beginningPoint'] ?? 0;
-$columnPost = $_POST['column'] ?? 0;
+//$columnPost = $_POST['column'] ?? 0;
+//$rowPost = $_POST['row'] ?? 0;
 $direction = $_POST['direction'] ?? 0;
-$rowPost = $_POST['row'] ?? 0;
 $matrix = [];
-$endRow = $rowPost - 1;
-$endColumn = $columnPost - 1;
 $beginningRow = 0;
 $beginningColumn = 0;
 $val = 1;
 $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 ?>
-<?php include 'partials/header.php';?>
-<?php include 'partials/nav.php';?>
+<?php include 'partials/header.php'; ?>
+<?php include 'partials/nav.php'; ?>
 
 <div class="main_container">
     <div class="main_content">
@@ -27,24 +49,35 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                 <input type="number" value="<?= $rowPost ?>" name="row"
                        max="10" min="2" placeholder="2-10" required>
 
-                <label for="column" id="columns">Enter column value</label>
+                <label for="column" id="column">Enter column value</label>
                 <input type="number" value="<?= $columnPost ?>"
                        name="column" max="10" min="2" placeholder="2-10"
                        required>
 
                 <label for="beginningPoint">Beginning point</label>
                 <select name="beginningPoint" id="beginningPoint">
-                    <option value="top-right" <?php if(isset($beginningPoint) && $beginningPoint && $_POST['beginningPoint']=='top-right') echo 'selected="selected"'?>>Top-right</option>
-                    <option value="top-left" <?php if(isset($beginningPoint) && $beginningPoint && $_POST['beginningPoint']=='top-left') echo 'selected="selected"'?>>Top-left</option>
-                    <option value="bottom-right" <?php if(isset($beginningPoint) && $beginningPoint && $_POST['beginningPoint']=='bottom-right') echo 'selected="selected"'?>>Bottom-right</option>
-                    <option value="bottom-left" <?php if(isset($beginningPoint) && $beginningPoint && $_POST['beginningPoint']=='bottom-left') echo 'selected="selected"'?>>Bottom-left</option>
+                    <option value="top-right" <?php if (isset($beginningPoint) && $beginningPoint && $_POST['beginningPoint'] == 'top-right') echo 'selected="selected"' ?>>
+                        Top-right
+                    </option>
+                    <option value="top-left" <?php if (isset($beginningPoint) && $beginningPoint && $_POST['beginningPoint'] == 'top-left') echo 'selected="selected"' ?>>
+                        Top-left
+                    </option>
+                    <option value="bottom-right" <?php if (isset($beginningPoint) && $beginningPoint && $_POST['beginningPoint'] == 'bottom-right') echo 'selected="selected"' ?>>
+                        Bottom-right
+                    </option>
+                    <option value="bottom-left" <?php if (isset($beginningPoint) && $beginningPoint && $_POST['beginningPoint'] == 'bottom-left') echo 'selected="selected"' ?>>
+                        Bottom-left
+                    </option>
                 </select>
                 <label for="direction">Choose direction</label>
                 <select name="direction" id="direction">
-                    <option value="clockf" <?php if(isset($direction) && $beginningPoint && $_POST['direction']=='clockf') echo 'selected="selected"'?>>Clockwise</option>
-                    <option value="clockr" <?php if(isset($direction) && $beginningPoint && $_POST['direction']=='clockr') echo 'selected="selected"'?>>Counterclockwise</option>
+                    <option value="clockf" <?php if (isset($direction) && $beginningPoint && $_POST['direction'] == 'clockf') echo 'selected="selected"' ?>>
+                        Clockwise
+                    </option>
+                    <option value="clockr" <?php if (isset($direction) && $beginningPoint && $_POST['direction'] == 'clockr') echo 'selected="selected"' ?>>
+                        Counterclockwise
+                    </option>
                 </select>
-
 
 
                 <input type="submit" class="btn">
@@ -113,7 +146,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 
                     for ($i = $endRow; $i >= $beginningRow; $i--) {
-                        if ($i === $rowPost -1) {
+                        if ($i === $rowPost - 1) {
                             $matrix[$i][$endColumn] = '<td class="beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         } else {
                             $matrix[$i][$endColumn] = '<td class="bottom" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
@@ -163,8 +196,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
             }
 
 
-
-            if ($beginningPoint === 'bottom-left' && $direction ==='clockr') {
+            if ($beginningPoint === 'bottom-left' && $direction === 'clockr') {
                 while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
 
 
@@ -210,15 +242,15 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                 }
             }
 
-            if ($beginningPoint === 'bottom-left' && $direction ==='clockf') {
+            if ($beginningPoint === 'bottom-left' && $direction === 'clockf') {
                 while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
 
 
-                    for ($i = $endRow ; $i >= $beginningRow; $i--) {
-                        if ($i === $rowPost-1) {
+                    for ($i = $endRow; $i >= $beginningRow; $i--) {
+                        if ($i === $rowPost - 1) {
                             $matrix[$i][$beginningColumn] = '<td class="beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         } else {
-                            $matrix[$i][$beginningColumn]= '<td class="bottom" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+                            $matrix[$i][$beginningColumn] = '<td class="bottom" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         }
                     }
                     $beginningColumn++;
@@ -258,7 +290,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                 }
             }
 
-            if ($beginningPoint === 'top-right' && $direction ==='clockr') {
+            if ($beginningPoint === 'top-right' && $direction === 'clockr') {
                 while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
 
 
@@ -306,12 +338,12 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                 }
             }
 
-            if ($beginningPoint === 'top-right' && $direction ==='clockf') {
+            if ($beginningPoint === 'top-right' && $direction === 'clockf') {
                 while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
 
 
                     for ($i = $endRow; $i >= $beginningRow; $i--) {
-                        if ($i === $rowPost-1) {
+                        if ($i === $rowPost - 1) {
                             $matrix[$i][$endColumn] = '<td class= "beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         } else {
                             $matrix[$i][$endColumn] = '<td class="bottom" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
@@ -352,9 +384,8 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                 }
             }
 
-            
 
-            if ($beginningPoint === 'top-left' && $direction==='clockf') {
+            if ($beginningPoint === 'top-left' && $direction === 'clockf') {
                 while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
 
 
@@ -400,7 +431,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
             }
 
-            if ($beginningPoint === 'top-left' && $direction ==='clockr') {
+            if ($beginningPoint === 'top-left' && $direction === 'clockr') {
                 while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
 
 
@@ -408,11 +439,10 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                         if ($i === 0) {
                             $matrix[$i][$beginningColumn] = '<td class="beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         } else {
-                            $matrix[$i][$beginningColumn]= '<td class="top" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
+                            $matrix[$i][$beginningColumn] = '<td class="top" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         }
                     }
                     $beginningColumn++;
-
 
 
                     if ($val > $rowPost * $columnPost) {
