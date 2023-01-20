@@ -3,20 +3,24 @@ require 'functions.php';
 
 $columnPost = '';
 $rowPost = '';
+$valid = '';
 
-function is_number ($number, int $min = 2, int $max = 10) : bool {
-    return ($number >= $min && $number <= $max);
+function is_number($number, $number2, int $min = 2, int $max = 10): bool
+{
+    return (($number >= $min && $number <= $max)) && (($number2 >= $min && $number2 <= $max));
 }
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $columnPost = $_POST['column'];
     $rowPost = $_POST['row'];
-    $valid = is_number($columnPost, 2, 10);
+    $valid = is_number($columnPost, $rowPost, 2, 10);
     $endRow = $rowPost - 1;
     $endColumn = $columnPost - 1;
+
     if ($valid) {
         $message = 'Number is valid';
+
     } else {
         $message = 'Number has to be between 2 and 10';
     }
@@ -46,13 +50,13 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
         <div class="wrapper">
             <form action="/" method="POST">
                 <label for="row" id="row">Enter row value</label>
-                <input type="number" value="<?= $rowPost ?>" name="row"
-                       max="10" min="2" placeholder="2-10" required>
+                <input type="number" value="<?= htmlspecialchars($rowPost) ?>" name="row"
+                       placeholder="2-10">
 
                 <label for="column" id="column">Enter column value</label>
-                <input type="number" value="<?= $columnPost ?>"
-                       name="column" max="10" min="2" placeholder="2-10"
-                       required>
+                <input type="number" value="<?= htmlspecialchars($columnPost) ?>"
+                       name="column" placeholder="2-10"
+                >
 
                 <label for="beginningPoint">Beginning point</label>
                 <select name="beginningPoint" id="beginningPoint">
@@ -88,7 +92,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
             <?php
 
 
-            if ($beginningPoint === 'bottom-right' && $direction === 'clockf') {
+            if ($beginningPoint === 'bottom-right' && $direction === 'clockf' && $valid === true) {
                 while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
 
 
@@ -139,6 +143,8 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 
                 }
+            } else {
+                echo '<p>' . $message . '</p>';
             }
 
             if ($beginningPoint === 'bottom-right' && $direction === 'clockr') {
@@ -480,24 +486,25 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
                 }
             }
+            if ($valid) {
 
+                echo '<table>';
 
-            echo '<table>';
+                for ($i = 0; $i < $rowPost; $i++) {
 
-            for ($i = 0; $i < $rowPost; $i++) {
+                    echo '<tr>';
 
-                echo '<tr>';
+                    for ($j = 0; $j < $columnPost; $j++) {
+                        echo $matrix[$i][$j];
 
-                for ($j = 0; $j < $columnPost; $j++) {
-                    echo $matrix[$i][$j];
+                    }
+
+                    echo '</tr>';
 
                 }
 
-                echo '</tr>';
-
+                echo '</table>';
             }
-
-            echo '</table>';
 
 
             ?>
