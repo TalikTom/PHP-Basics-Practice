@@ -4,6 +4,7 @@ require 'functions.php';
 $columnPost = '';
 $rowPost = '';
 $valid = '';
+$message = '';
 
 function is_number($number, $number2, int $min = 2, int $max = 10): bool
 {
@@ -14,16 +15,14 @@ function is_number($number, $number2, int $min = 2, int $max = 10): bool
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $columnPost = $_POST['column'];
     $rowPost = $_POST['row'];
-    $valid = is_number($columnPost, $rowPost, 2, 10);
+    $valid = is_number((int)$columnPost, (int)$rowPost, 2, 10);
     $endRow = $rowPost - 1;
     $endColumn = $columnPost - 1;
 
-    if ($valid) {
-        $message = 'Number is valid';
-
-    } else {
+    if (!$valid) {
         $message = 'Number has to be between 2 and 10';
     }
+
 
 
 }
@@ -92,7 +91,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
             <?php
 
 
-            if ($beginningPoint === 'bottom-right' && $direction === 'clockf' && $valid === true) {
+            if ($beginningPoint === 'bottom-right' && $direction === 'clockf') {
                 while ($beginningRow <= $endRow && $beginningColumn <= $endColumn) {
 
 
