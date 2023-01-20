@@ -144,7 +144,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
                 }
             } else {
-                echo '<p>' . $message . '</p>';
+                echo '<p class="warning">' . $message . '</p>';
             }
 
             if ($beginningPoint === 'bottom-right' && $direction === 'clockr') {

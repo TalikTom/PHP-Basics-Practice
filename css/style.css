@@ -542,3 +542,10 @@ select {
     }
 
 }
+
+.warning {
+    color: #e0673a;
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
