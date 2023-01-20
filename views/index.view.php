@@ -13,29 +13,9 @@ $val = 1;
 $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-<nav class="nav_container">
-    <ul class="nav_bar">
-        <li><a href="/">Spiral matrix</a></li>
-        <li><a href="/cookies.php">Cookies</a></li>
-        <li><a href="/multiplication.php">Multiplication</a></li>
-    </ul>
-</nav>
+<?php include 'partials/header.php';?>
+<?php include 'partials/nav.php';?>
+
 <div class="main_container">
     <div class="main_content">
 
@@ -496,8 +476,11 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
     </div>
 </div>
 
+<?php
+
+?>
 
 <?php include 'includes/footer.php'; ?>
 </body>
-<script src="script.js"></script>
+<script src="../script.js"></script>
 </html>

@@ -224,6 +224,7 @@ declare(strict_types=1);
 //    echo $price;
 //    echo '<br>';
 //}
-require 'index.view.php';
+
+require 'router.php';
 
 

@@ -32,7 +32,7 @@ $message2 = 'This name was stored in a cookie: ' . $name;
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
 
@@ -40,8 +40,8 @@ $message2 = 'This name was stored in a cookie: ' . $name;
 <nav class="nav_container">
     <ul class="nav_bar">
         <li><a href="/">Home</a></li>
-        <li><a href="/cookies.php">Cookies</a></li>
-        <li><a href="/multiplication.php">Multiplication</a></li>
+        <li><a href="/views/cookies.views.php">Cookies</a></li>
+        <li><a href="/views/multiplication.views.php">Multiplication</a></li>
     </ul>
 </nav>
 <div class="main_container">
@@ -50,10 +50,10 @@ $message2 = 'This name was stored in a cookie: ' . $name;
         <p><?= "$message <br>" ?></p>
         <p><?= "$message2 <br>" ?></p>
 
-        <p>Refresh this <a href="/cookies.php">Page</a> to see increase in views</p>
+        <p>Refresh this <a href="/views/cookies.views.php">Page</a> to see increase in views</p>
 
 
-            <form class= "cookies_form" action="/cookies.php" method="POST">
+            <form class= "cookies_form" action="/views/cookies.views.php" method="POST">
                 <label for="color">Pick a theme</label>
                 <select name="color" id="color">
                     <option value="dark">Dark</option>
