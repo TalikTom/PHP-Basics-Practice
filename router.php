@@ -5,8 +5,9 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $routes =
     [
         '/' => 'controllers/index.php',
-        '/cookies' => 'controllers/about.php',
-        '/multiplication' => 'controllers/contact.php',
+        '/cookies' => 'controllers/cookies.php',
+        '/multiplication' => 'controllers/multiplication.php',
+        '/chart' => 'controllers/chart.php',
     ];
 
 if (array_key_exists($uri, $routes))

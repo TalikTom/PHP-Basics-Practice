@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +10,7 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -18,10 +19,10 @@
 <nav>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/about.view.php?broj1=1&broj2=2&broj3=3">About</a></li>
+        <li><a href="/misc/about.view.php?broj1=1&broj2=2&broj3=3">About</a></li>
     </ul>
 </nav>
-<a href="about.view.php">Link</a>
+<a href="../misc/about.view.php">Link</a>
 
 <figure class="highcharts-figure">
     <div id="container"></div>
