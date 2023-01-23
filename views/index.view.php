@@ -1,35 +1,60 @@
 <?php
 require 'functions.php';
 
-$columnPost = '';
-$rowPost = '';
-$valid = '';
+$input = ['column' => '', 'row' => '',];
+
 $message = '';
 
-function is_number($number, $number2, int $min = 2, int $max = 10): bool
-{
-    return (($number >= $min && $number <= $max)) && (($number2 >= $min && $number2 <= $max));
-}
+//function is_number($number, $number2, int $min = 2, int $max = 10): bool
+//{
+//    return (($number >= $min && $number <= $max)) && (($number2 >= $min && $number2 <= $max));
+//}
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $columnPost = $_POST['column'];
-    $rowPost = $_POST['row'];
-    $valid = is_number((int)$columnPost, (int)$rowPost, 2, 10);
-    $endRow = $rowPost - 1;
-    $endColumn = $columnPost - 1;
+//    $input['column = $_POST['column'];
+//    $input['row = $_POST['row'];
+//    $valid = is_number((int)$input['column, (int)$input['row, 2, 10);
+    $validation_filters['column']['filter'] = FILTER_VALIDATE_INT;
+    $validation_filters['row']['filter'] = FILTER_VALIDATE_INT;
+    $validation_filters['column']['options']['min_range'] = 2;
+    $validation_filters['column']['options']['max_range'] = 10;
+    $validation_filters['row']['options']['min_range'] = 2;
+    $validation_filters['row']['options']['max_range'] = 10;
 
-    if (!$valid) {
-        $message = 'Number has to be between 2 and 10';
+
+    $input = filter_input_array(INPUT_POST, $validation_filters);
+
+
+    //errors messages
+
+    $errors['column'] = $input['column'] ? '' : 'Only numbers 2 to 10 are allowed';
+    $errors['row'] = $input['row'] ? '' : 'Only numbers 2 to 10 are allowed';
+    $invalid = implode($errors);
+
+    if ($invalid) {
+        $message = 'Please correct the following errors:';
+    } else {
+        $message = 'Thank you, your data was valid';
     }
+
+    //sanitize data
+
+    $input['column'] = filter_var($input['column'], FILTER_SANITIZE_NUMBER_INT);
+    $input['row'] = filter_var($input['row'], FILTER_SANITIZE_NUMBER_INT);
+//    if (!$valid) {
+//        $message = 'Number has to be between 2 and 10';
+//    }
 
 
 
 }
 
 $beginningPoint = $_POST['beginningPoint'] ?? 0;
-//$columnPost = $_POST['column'] ?? 0;
-//$rowPost = $_POST['row'] ?? 0;
+//$input['column = $_POST['column'] ?? 0;
+//$input['row = $_POST['row'] ?? 0;
+$endRow = $input['row'] - 1;
+$endColumn = $input['column'] - 1;
 $direction = $_POST['direction'] ?? 0;
 $matrix = [];
 $beginningRow = 0;
@@ -45,16 +70,16 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
     <div class="main_content">
 
         <h1>Spiral matrix</h1>
-
+        <?= $message; ?>
         <div class="wrapper">
             <form action="/" method="POST">
                 <label for="row" id="row">Enter row value</label>
-                <input type="number" value="<?= htmlspecialchars($rowPost) ?>" name="row"
+                <input type="number" value="<?= $input['row'] ?>" name="row"
                        placeholder="2-10" min="2" max="10" required>
 
                 <label for="column" id="column">Enter column value</label>
-                <input type="number" value="<?= htmlspecialchars($columnPost) ?>"
-                       name="column" placeholder="2-10"  min="2" max="10" required
+                <input type="number" value="<?= $input['column'] ?>"
+                       name="column" placeholder="2-10" min="2" max="10" required
                 >
 
                 <label for="beginningPoint">Beginning point</label>
@@ -96,7 +121,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 
                     for ($i = $endColumn; $i >= $beginningColumn; $i--) {
-                        if ($i === $columnPost - 1) {
+                        if ($i === $input['column'] - 1) {
                             $matrix[$endRow][$i] = '<td class="beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         } else {
                             $matrix[$endRow][$i] = '<td class="right" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
@@ -105,7 +130,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $endRow--;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -118,7 +143,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
                     $beginningColumn++;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -129,7 +154,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $beginningRow++;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -142,8 +167,6 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 
                 }
-            } else {
-                echo '<p class="warning">' . $message . '</p>';
             }
 
             if ($beginningPoint === 'bottom-right' && $direction === 'clockr') {
@@ -151,7 +174,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 
                     for ($i = $endRow; $i >= $beginningRow; $i--) {
-                        if ($i === $rowPost - 1) {
+                        if ($i === $input['row'] - 1) {
                             $matrix[$i][$endColumn] = '<td class="beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         } else {
                             $matrix[$i][$endColumn] = '<td class="bottom" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
@@ -161,7 +184,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     $endColumn--;
 
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -174,7 +197,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
                     $beginningRow++;
 //
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 //
@@ -185,7 +208,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $beginningColumn++;
 //
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -216,7 +239,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $endRow--;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 //
@@ -225,7 +248,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $endColumn--;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 //
@@ -234,7 +257,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $beginningRow++;
 ////
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -252,7 +275,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 
                     for ($i = $endRow; $i >= $beginningRow; $i--) {
-                        if ($i === $rowPost - 1) {
+                        if ($i === $input['row'] - 1) {
                             $matrix[$i][$beginningColumn] = '<td class="beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         } else {
                             $matrix[$i][$beginningColumn] = '<td class="bottom" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
@@ -260,7 +283,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $beginningColumn++;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -271,7 +294,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $beginningRow++;
 //
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 //
@@ -281,7 +304,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $endColumn--;
 //
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 //
@@ -300,7 +323,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 
                     for ($i = $endColumn; $i >= $beginningColumn; $i--) {
-                        if ($i === $columnPost - 1) {
+                        if ($i === $input['column'] - 1) {
                             $matrix[$beginningRow][$i] = '<td class="beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         } else {
                             $matrix[$beginningRow][$i] = '<td class="right" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
@@ -308,7 +331,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $beginningRow++;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -319,7 +342,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $beginningColumn++;
 //
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -329,7 +352,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $endRow--;
 //
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -348,7 +371,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 
 
                     for ($i = $endRow; $i >= $beginningRow; $i--) {
-                        if ($i === $rowPost - 1) {
+                        if ($i === $input['row'] - 1) {
                             $matrix[$i][$endColumn] = '<td class= "beginning" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
                         } else {
                             $matrix[$i][$endColumn] = '<td class="bottom" style="animation-delay:' . ($val) * 35 . 'ms;">' . $val++ . '</td>';
@@ -358,7 +381,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $endColumn--;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 //
@@ -367,7 +390,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $beginningRow++;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 ////
@@ -376,7 +399,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $beginningColumn++;
 ////
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 //
@@ -403,7 +426,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $beginningRow++;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -413,7 +436,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $endColumn--;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -422,7 +445,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $endRow--;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
@@ -450,7 +473,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     $beginningColumn++;
 
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 //
@@ -460,7 +483,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $endRow--;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 //
@@ -469,7 +492,7 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $endColumn--;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 //
@@ -478,22 +501,23 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                     }
                     $beginningRow++;
 
-                    if ($val > $rowPost * $columnPost) {
+                    if ($val > $input['row'] * $input['column']) {
                         break;
                     }
 
 
                 }
             }
-            if ($valid) {
+
+            if ($input['column']) {
 
                 echo '<table>';
 
-                for ($i = 0; $i < $rowPost; $i++) {
+                for ($i = 0; $i < $input['row']; $i++) {
 
                     echo '<tr>';
 
-                    for ($j = 0; $j < $columnPost; $j++) {
+                    for ($j = 0; $j < $input['column']; $j++) {
                         echo $matrix[$i][$j];
 
                     }
@@ -503,8 +527,8 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                 }
 
                 echo '</table>';
-            }
 
+            }
 
             ?>
         </div>
