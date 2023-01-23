@@ -50,11 +50,11 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
             <form action="/" method="POST">
                 <label for="row" id="row">Enter row value</label>
                 <input type="number" value="<?= htmlspecialchars($rowPost) ?>" name="row"
-                       placeholder="2-10">
+                       placeholder="2-10" min="2" max="10" required>
 
                 <label for="column" id="column">Enter column value</label>
                 <input type="number" value="<?= htmlspecialchars($columnPost) ?>"
-                       name="column" placeholder="2-10"
+                       name="column" placeholder="2-10"  min="2" max="10" required
                 >
 
                 <label for="beginningPoint">Beginning point</label>
