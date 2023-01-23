@@ -76,11 +76,12 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
                 <label for="row" id="row">Enter row value</label>
                 <input type="number" value="<?= $input['row'] ?>" name="row"
                        placeholder="2-10" min="2" max="10" required>
-
+                <span><?= $errors['row'] ?></span>
                 <label for="column" id="column">Enter column value</label>
                 <input type="number" value="<?= $input['column'] ?>"
                        name="column" placeholder="2-10" min="2" max="10" required
                 >
+                <span><?= $errors['column'] ?></span>
 
                 <label for="beginningPoint">Beginning point</label>
                 <select name="beginningPoint" id="beginningPoint">
