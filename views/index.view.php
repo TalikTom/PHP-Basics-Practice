@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
+
 }
 
 $beginningPoint = $_POST['beginningPoint'] ?? 0;
