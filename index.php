@@ -8,9 +8,13 @@ require 'Database.php';
 
 $config = require('config.php');
 
-$db = new Database($config);
+$db = new Database($config['database']);
 
-$notes = $db->query("select * from notes where user_id = 1")->fetchAll(PDO::FETCH_ASSOC);
+$id = $_GET['id'];
+
+$query = "select * from notes where user_id = :id";
+
+$notes = $db->query($query, [':id' => $id])->fetchAll(PDO::FETCH_ASSOC);
 
 
 
