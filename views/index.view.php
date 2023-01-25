@@ -546,11 +546,6 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
     </div>
 </div>
 
-<?php
+<?php include 'partials/footer.php'?>
 
-?>
 
-<?php include 'includes/footer.php'; ?>
-</body>
-<script src="../script.js"></script>
-</html>

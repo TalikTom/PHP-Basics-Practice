@@ -54,5 +54,4 @@ $message2 = 'This name was stored in a cookie: ' . $name;
             </form>
     </div>
 </div>
-</body>
-</html>
+<?php include 'partials/footer.php'?>

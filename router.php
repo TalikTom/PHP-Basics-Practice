@@ -8,6 +8,7 @@ $routes =
         '/cookies' => 'controllers/cookies.php',
         '/multiplication' => 'controllers/multiplication.php',
         '/chart' => 'controllers/chart.php',
+        '/notes' => 'controllers/notes.php',
     ];
 
 if (array_key_exists($uri, $routes))
