@@ -28,6 +28,7 @@ $message2 = 'This name was stored in a cookie: ' . $name;
 
 <?php include 'partials/header.php'; ?>
 <?php include 'partials/nav.php'; ?>
+
 <div class="main_container">
     <div class="main_content">
         <h1>Cookies</h1>
