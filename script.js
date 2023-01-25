@@ -1,75 +1,69 @@
-const chart = Highcharts.chart("container", {
-    credits: {
-        enabled: false,
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
     },
     title: {
-        text: "Vrijeme izrade baza i tablica, 2022",
-        align: "left",
+        text: 'Monthly Average Rainfall'
     },
     subtitle: {
-        text: "Chart option: Plain",
-        align: "left",
+        text: 'Source: WorldClimate.com'
     },
     xAxis: {
         categories: [
-            "Vjezba_1",
-            "Vjezba_2",
-            "Vjezba_3",
-            "Vjezba_4",
-            "Vjezba_5",
-            "Vjezba_6",
-            "Vjezba_7",
-            "Vjezba_8",
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec'
         ],
+        crosshair: true
     },
     yAxis: {
+        min: 0,
         title: {
-            text: "Time",
-        },
+            text: 'Rainfall (mm)'
+        }
     },
-    series: [
-        {
-            type: "column",
-            name: "Time",
-            colorByPoint: true,
-            data: [50.4, 36.09, 29.53, 27.54, 20.52, 20.59, 23.37, 17.15],
-            showInLegend: false,
-        },
-    ],
-});
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Tokyo',
+        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4,
+            194.1, 95.6, 54.4]
 
-document.getElementById("plain").addEventListener("click", () => {
-    chart.update({
-        chart: {
-            inverted: false,
-            polar: false,
-        },
-        subtitle: {
-            text: "Chart option: Plain",
-        },
-    });
-});
+    }, {
+        name: 'New York',
+        data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5,
+            106.6, 92.3]
 
-document.getElementById("inverted").addEventListener("click", () => {
-    chart.update({
-        chart: {
-            inverted: true,
-            polar: false,
-        },
-        subtitle: {
-            text: "Chart option: Inverted",
-        },
-    });
-});
+    }, {
+        name: 'London',
+        data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3,
+            51.2]
 
-document.getElementById("polar").addEventListener("click", () => {
-    chart.update({
-        chart: {
-            inverted: false,
-            polar: true,
-        },
-        subtitle: {
-            text: "Chart option: Polar",
-        },
-    });
+    }, {
+        name: 'Berlin',
+        data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8,
+            51.1]
+
+    }]
 });
