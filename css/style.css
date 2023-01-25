@@ -553,3 +553,15 @@ select {
 
     text-transform: uppercase;
 }
+
+.center-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 50vh;
+    text-align: center;
+}
+
+.large-text {
+    font-size: 2rem;
+}
