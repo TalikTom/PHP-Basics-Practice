@@ -5,5 +5,6 @@
         <li><a href="/multiplication">Multiplication</a></li>
         <li><a href="/chart">Chart</a></li>
         <li><a href="/notes">Notes</a></li>
+        <li><a href="/oib">OIB Generator</a></li>
     </ul>
 </nav>

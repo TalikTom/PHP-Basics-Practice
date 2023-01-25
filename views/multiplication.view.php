@@ -3,7 +3,7 @@
 <div class="main_container">
     <div class="main_content">
 
-        <h2>Get method - Multiplication table</h2>
+        <h1>Get method - Multiplication table</h1>
 
         <form action="/views/multiplication.view.php" method="GET">
             <label for="row">Enter row value</label>
