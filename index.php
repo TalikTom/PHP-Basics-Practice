@@ -6,13 +6,7 @@ require 'Database.php';
 
 // connect to the database, execute a query
 
-$config = [
-    'host' => 'localhost',
-    'port' => 3306,
-    'dbname' => 'postit',
-    'charset' => 'utf8mb4'
-];
-
+$config = require('config.php');
 
 $db = new Database($config);
 
