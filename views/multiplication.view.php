@@ -5,7 +5,7 @@
 
         <h2>Get method - Multiplication table</h2>
 
-        <form action="/views/multiplication.views.php" method="GET">
+        <form action="/views/multiplication.view.php" method="GET">
             <label for="row">Enter row value</label>
             <input type="number" value="" name="row" placeholder="1-10" max="10" min="1" required>
             <label for="row">Enter column value</label>

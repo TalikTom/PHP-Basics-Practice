@@ -34,10 +34,10 @@ $message2 = 'This name was stored in a cookie: ' . $name;
         <p><?= "$message <br>" ?></p>
         <p><?= "$message2 <br>" ?></p>
 
-        <p>Refresh this <a href="/views/cookies.views.php">Page</a> to see increase in views</p>
+        <p>Refresh this <a href="/views/cookies.view.php">Page</a> to see increase in views</p>
 
 
-            <form class= "cookies_form" action="/views/cookies.views.php" method="POST">
+            <form class= "cookies_form" action="/views/cookies.view.php" method="POST">
                 <label for="color">Pick a theme</label>
                 <select name="color" id="color">
                     <option value="dark">Dark</option>

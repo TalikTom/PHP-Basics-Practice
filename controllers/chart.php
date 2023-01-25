@@ -1,3 +1,3 @@
 <?php
 
-require 'views/chart.views.php';
+require 'views/chart.view.php';
