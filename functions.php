@@ -41,4 +41,14 @@ class OIB
 
         return $oib;
     }
+
+    public static function oibMore($rep)
+    {
+        $arrayOib = [];
+        for ($i = 0; $i < $rep; $i++) {
+
+            $arrayOib[$i] = OIB::oibMaker();
+        }
+        return $arrayOib;
+    }
 }

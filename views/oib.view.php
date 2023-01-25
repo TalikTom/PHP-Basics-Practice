@@ -4,7 +4,11 @@
 <div class="center-grid">
     <h1>Press F5</h1>
 <?php
-$oib = $oib=OIB::oibMaker();
+$oib = OIB::oibMaker();
+$oibA = OIB::oibMore(50);
+foreach ($oibA as $o) {
+    echo $o, '<br>';
+}
 echo '<p class="large-text">' . $oib . '</p>';
 ?>
 </div>

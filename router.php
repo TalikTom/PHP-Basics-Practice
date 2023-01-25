@@ -9,7 +9,8 @@ $routes =
         '/multiplication' => 'controllers/multiplication.php',
         '/chart' => 'controllers/chart.php',
         '/notes' => 'controllers/notes.php',
-        '/oib' => 'controllers/oib.php'
+        '/oib-generator' => 'controllers/oib.php',
+        '/love-calculator' => 'controllers/love.php'
     ];
 
 if (array_key_exists($uri, $routes))

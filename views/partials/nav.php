@@ -5,6 +5,7 @@
         <li><a href="/multiplication">Multiplication</a></li>
         <li><a href="/chart">Chart</a></li>
         <li><a href="/notes">Notes</a></li>
-        <li><a href="/oib">OIB Generator</a></li>
+        <li><a href="/oib-generator">OIB Generator</a></li>
+        <li><a href="/love-calculator">Love Calculator</a></li>
     </ul>
 </nav>
