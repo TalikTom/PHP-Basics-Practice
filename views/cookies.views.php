@@ -25,25 +25,9 @@ $message2 = 'This name was stored in a cookie: ' . $name;
 
 
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Document</title>
-</head>
 
-<body class="<?= htmlspecialchars($scheme) ?>">
-<nav class="nav_container">
-    <ul class="nav_bar">
-        <li><a href="/">Home</a></li>
-        <li><a href="/views/cookies.views.php">Cookies</a></li>
-        <li><a href="/views/multiplication.views.php">Multiplication</a></li>
-    </ul>
-</nav>
+<?php include 'partials/header.php'; ?>
+<?php include 'partials/nav.php'; ?>
 <div class="main_container">
     <div class="main_content">
         <h1>Cookies</h1>

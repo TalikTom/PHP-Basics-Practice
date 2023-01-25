@@ -8,4 +8,4 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="<?= htmlspecialchars($scheme) ?>">
