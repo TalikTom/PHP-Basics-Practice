@@ -629,3 +629,13 @@ select {
     content: "Placeholder still possible";
     color: gray;
 }
+
+.generator {
+    margin-top: 3rem;
+    align-items: center;
+}
+
+.generator-text {
+    border: 1px solid white;
+    margin-top: 3rem;
+}
