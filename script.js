@@ -52,3 +52,18 @@ Highcharts.chart('container', {
 
     }, ]
 });
+function copyText() {
+    let copyText = document.getElementById("textbox");
+    copyText.select();
+    document.execCommand("copy");
+    document.getElementById("message")
+        .innerHTML ="Copied the text!"
+}
+
+
+    function copyEvent(id)
+    {
+        let str = document.getElementById(id);
+        window.getSelection().selectAllChildren(str);
+        document.execCommand("Copy")
+    }

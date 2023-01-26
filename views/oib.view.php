@@ -6,50 +6,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($quantity === 0) {
         $quantity = '';
+    } else {
+        $quantity = '';
     }
 }
 ?>
 
 
 <div class="center-grid">
+    <?php
+    $oib = OIB::oibMaker();
+    echo '<p class="large-text" id="single">' . $oib . '</p>';
+
+    ?>
+    <button type="button" onclick="copyEvent('single')">Copy to clipboard</button>
     <form action="/oib-generator" method="POST">
         <label for="quantity">Enter how many OIBs you need:</label>
         <input type="int" name="quantity" id="quantity" value="<?= htmlspecialchars($quantity) ?>">
-        <input type="submit">
+        <input type="submit" value="Get me OIBs!">
     </form>
 
 
-    <input type="text"
-           value=""
-           id="textbox">
-    <button onclick="copyText()">
-        Copy text
-    </button>
-    <script>
-        function copyText() {
-            let copyText = document.getElementById("textbox");
-            copyText.select();
-            document.execCommand("copy");
-            document.getElementById("message")
-                .innerHTML ="Copied the text!"
+    <button type="button" onclick="copyEvent('copy')">Copy to clipboard</button>
+    <p id="copy"><?php
+        $oibA = OIB::oibMore($quantity);
+        foreach ($oibA as $o) {
+            echo $o, '<br>';
         }
-    </script>
-    <p>
-        Click on the button to copy the text from the
-        text field.
-    </p>
-    <p id="message"></p>
+    ?></p>
 
-<?php
-$oib = OIB::oibMaker();
-echo '<p class="large-text">' . $oib . '</p>';
 
-$oibA = OIB::oibMore($quantity);
-foreach ($oibA as $o) {
-    echo $o, '<br>';
-}
 
-?>
+
+
+
 </div>
 
 <?php include 'partials/footer.php'?>

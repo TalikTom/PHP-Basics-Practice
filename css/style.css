@@ -63,6 +63,7 @@ svg {
         scroll-behavior: auto !important;
     }
 }
+
 /* Highcharts */
 
 .highcharts-figure,
@@ -274,10 +275,10 @@ form {
 
 @media (max-width: 1010px) {
 
-   form {
-    margin-top: 3rem;
-       align-items: center;
-   }
+    form {
+        margin-top: 3rem;
+        align-items: center;
+    }
 
     .cookies_form {
         flex-direction: column;
@@ -300,10 +301,10 @@ form {
 }
 
 @media (max-width: 900px) {
-    .main_content{
+    .main_content {
 
 
-    text-align: center;
+        text-align: center;
     }
 }
 
@@ -407,7 +408,6 @@ td {
         font-size: 1rem;
     }
 }
-
 
 
 @keyframes example {
@@ -520,6 +520,7 @@ select {
     .wrapper {
         flex-direction: column-reverse;
     }
+
     h1 {
         font-size: 1.5rem;
     }
@@ -527,18 +528,21 @@ select {
 
 @media (max-width: 700px) {
 
-   .bottom:after {
-       width: 3px;
-       height: 5px;
-   }
+    .bottom:after {
+        width: 3px;
+        height: 5px;
+    }
+
     .top:after {
         width: 3px;
         height: 5px;
     }
+
     .left:after {
         width: 5px;
         height: 3px;
     }
+
     .right:after {
         width: 5px;
         height: 3px;
@@ -603,4 +607,25 @@ select {
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+.textarea {
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 1px 6px;
+}
+
+.textarea {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    resize: both;
+    min-height: 40px;
+    line-height: 20px;
+}
+
+.textarea[contenteditable]:empty::before {
+    content: "Placeholder still possible";
+    color: gray;
 }
