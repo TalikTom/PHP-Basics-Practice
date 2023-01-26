@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="center-grid">
     <h1>OIB Generator</h1>
 
+
     <?php
     $oib = OIB::oibMaker();
     echo '<p class="large-text" id="single">' . $oib . '</p>';
@@ -20,8 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <button class="btn" type="button" onclick="copyEvent('single')">Copy to clipboard</button>
     <form class="generator" action="/oib-generator" method="POST">
         <label for="quantity">Enter how many OIBs you need:</label>
-        <input type="int" name="quantity" id="quantity" value="<?= htmlspecialchars($quantity) ?>">
-        <input type="submit" value="Get me OIBs!">
+        <input type="number" name="quantity" id="quantity" value="<?= htmlspecialchars($quantity) ?>">
+        <input type="submit" value="Get me fresh OIBs!">
     </form>
 
 
