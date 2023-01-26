@@ -43,7 +43,7 @@ Highcharts.chart('container', {
         data: [15.58, 11.38, 10.55, 11.22, 7.42, 8.29, 9.24, 8.20]
 
     }, {
-        name: 'Practice Mysql assignements - time',
+        name: 'Practice Mysql assignments - time',
         data: [34.43, 24.31, 18.57, 16.32, 13.10, 12.30, 14.13, 8.55]
 
     }, {
