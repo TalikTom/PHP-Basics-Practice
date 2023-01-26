@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <?php
     $oib = OIB::oibMaker();
-    echo '<p class="large-text" id="single">' . $oib . '</p>';
+    echo '<p class="large-text box-shadow" id="single">' . $oib . '</p>';
 
     ?>
     <button class="btn" type="button" onclick="copyEvent('single')">Copy to clipboard</button>
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     <button type="button" onclick="copyEvent('copy')" class="btn">Copy to clipboard</button>
-    <p id="copy" class="generator-text"><?php
+    <p id="copy" class="generator-text box-shadow"><?php
         $oibA = OIB::oibMore($quantity);
         foreach ($oibA as $o) {
             echo $o, '<br>';

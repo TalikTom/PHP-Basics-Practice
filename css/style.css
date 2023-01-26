@@ -124,7 +124,7 @@ body {
 }
 
 body {
-    background: #112c44;
+    background: #565656;
     color: #fff;
     font-family: "Roboto Condensed", sans-serif;
 }
@@ -195,7 +195,7 @@ footer {
 
 .nav_container {
     width: 100%;
-    background-color: #081e31;
+    background-color: #252525;
 }
 
 .nav_bar {
@@ -205,7 +205,7 @@ footer {
     width: 80%;
     max-width: 960px;
     margin: 0 auto;
-    background-color: #081e31;
+    background-color: #252525;
 }
 
 .nav_bar li {
@@ -224,11 +224,11 @@ footer {
 
 .light {
     background-color: white;
-    color: #112c44;
+    color: #252525;
 }
 
 .dark {
-    background-color: #112c44;
+    background-color: #565656;
     color: white;
 }
 
@@ -637,7 +637,15 @@ select {
 }
 
 .generator-text {
-    border: 1px solid white;
+
     margin-top: 2rem;
     padding: 1rem 0;
+}
+
+.box-shadow {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+.red {
+    background-color: #6cfc05;
 }
