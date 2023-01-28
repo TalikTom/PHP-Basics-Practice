@@ -51,4 +51,17 @@ class OIB
         }
         return $arrayOib;
     }
+
+
+}
+
+class LoveCalc {
+    public static function countValues($a, $a2) {
+        for ($i = 0; $i < count($a); $i++) {
+            if (array_key_exists($a[$i], $a2)) {
+                $a3[] = $a2[$a[$i]];
+            }
+        }
+        return $a3;
+    }
 }

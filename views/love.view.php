@@ -1,5 +1,6 @@
 <?php include 'partials/header.php'; ?>
 <?php include 'partials/nav.php'; ?>
+<?php include 'functions.php'; ?>
 <?php
 $name1 = '';
 $name2 = '';
@@ -16,10 +17,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $namesTogether = $name1 . $name2;
 
+    $namesTogether = mb_str_split($namesTogether);
+    $namesTogether2 = array_count_values($namesTogether);
+
+    $repeatedLettersCount = [];
+
+    $repeatedLettersCount = LoveCalc::countValues($namesTogether, $namesTogether2);
+    $repeatedLettersCountName1 = array_slice($repeatedLettersCount,  0,4);
+
 }
 ?>
+<?php echo $name1, '<br>' ?>
+<?php echo $name2 , '<br>'?>
+<?php print_r($repeatedLettersCountName1) ?>
+<?php echo mb_strlen($name1) ?>
 
-<?= $namesTogether ?>
 <main class="center-grid" >
     <form action="/love-calculator" method="POST">
         <label for="name1" id="name1">Enter name of the first person</label>
