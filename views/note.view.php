@@ -2,10 +2,10 @@
 <?php include 'partials/nav.php'; ?>
     <main>
         <a href="/notes">Go back</a>
-        <?php foreach ($note as $not) : ?>
 
-            <li><?= $not['body'] ?></li>
 
-        <?php endforeach; ?>
+           <li> <?php echo $note['body'] ?></li>
+
+
     </main>
 <?php include 'partials/footer.php' ?>
