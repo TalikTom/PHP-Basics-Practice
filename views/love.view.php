@@ -1,6 +1,6 @@
 <?php include 'partials/header.php'; ?>
 <?php include 'partials/nav.php'; ?>
-<?php include 'functions.php'; ?>
+
 <?php
 $name1 = '';
 $name2 = '';

@@ -1,4 +1,3 @@
-<?php require 'functions.php'; ?>
 <?php
 
 $config = require('config.php');
@@ -12,8 +11,9 @@ if(!$note) {
     abort(404);
 }
 
+$currentUserId = 1;
 
-if($note['user_id'] != 3) {
+if($note['user_id'] != $currentUserId) {
     abort(403);
 }
 

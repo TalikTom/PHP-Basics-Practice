@@ -1,5 +1,5 @@
 <?php
-require 'functions.php';
+
 
 $input = ['column' => '', 'row' => '',];
 $errors = ['column' => '', 'row' => '',];

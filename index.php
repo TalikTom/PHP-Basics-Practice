@@ -2,6 +2,8 @@
 declare(strict_types=1);
 require 'Database.php';
 require 'router.php';
+require 'functions.php';
+require 'Response.php';
 
 
 
