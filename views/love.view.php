@@ -23,13 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $repeatedLettersCount = [];
 
     $repeatedLettersCount = LoveCalc::countValues($namesTogether, $namesTogether2);
-    $repeatedLettersCountName1 = array_slice($repeatedLettersCount,  0,4);
+    $repeatedLettersCountName1 = array_slice($repeatedLettersCount,  0,mb_strlen($name1));
+    $repeatedLettersCountName2 = array_slice($repeatedLettersCount,  mb_strlen($name1), mb_strlen($name2));
 
 }
 ?>
 <?php echo $name1, '<br>' ?>
 <?php echo $name2 , '<br>'?>
-<?php print_r($repeatedLettersCountName1) ?>
+<?php print_r($repeatedLettersCountName2) ?>
 <?php echo mb_strlen($name1) ?>
 
 <main class="center-grid" >
