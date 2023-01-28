@@ -65,3 +65,17 @@ class LoveCalc {
         return $a3;
     }
 }
+
+function abort($code = 404)
+{
+    http_response_code($code);
+
+    require base_path("views/{$code}.php");
+
+    die();
+}
+
+function base_path($path)
+{
+    return $_SERVER['DOCUMENT_ROOT'] . '/' .$path;
+}

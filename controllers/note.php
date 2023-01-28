@@ -1,3 +1,4 @@
+<?php require 'functions.php'; ?>
 <?php
 
 $config = require('config.php');
@@ -5,9 +6,13 @@ $config = require('config.php');
 $db = new Database($config['database']);
 
 
-$notes = $db ->query('select * from notes where user_id = :id', ['id' => $_GET['user_id']])->fetchAll();
+$note = $db ->query('select * from notes where user_id = :id', ['id' => $_GET['user_id']])->fetchAll();
+
+if(!$note) {
+    abort(404);
+}
 
 
 
 
-require 'views/notes.view.php';
+require 'views/note.view.php';
