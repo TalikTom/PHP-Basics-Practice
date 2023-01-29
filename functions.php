@@ -1,8 +1,26 @@
 <?php
-//function is_number ($number, int $min = 2, int $max = 10) : bool {
-//    return ($number >= $min && $number <= $max);
-//}
-//
+
+
+function dd($value)
+{
+    echo "<pre>";
+    var_dump($value);
+    echo "</pre>";
+
+    die();
+}
+
+function urlIs($value) {
+    return $_SERVER['REQUEST_URI'] === $value;
+}
+
+function authorize($condition, $status = Response::FORBIDDEN) {
+    if (! $condition) {
+        abort($status);
+    }
+}
+
+
 
 class OIB
 {
@@ -67,8 +85,3 @@ class LoveCalc {
 }
 
 
-function authorize($condition, $status = Response::FORBIDDEN) {
-    if(! $condition) {
-        abort($status);
-    }
-}
