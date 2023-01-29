@@ -1,9 +1,9 @@
 <?php
-declare(strict_types=1);
-require 'Database.php';
-require 'router.php';
-require 'functions.php';
-require 'Response.php';
+require_once 'functions.php';
+require_once 'Database.php';
+require_once 'Response.php';
+require_once 'router.php';
+
 
 
 

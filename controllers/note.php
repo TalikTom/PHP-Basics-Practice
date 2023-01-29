@@ -1,4 +1,3 @@
-<?php require 'functions.php' ?>
 <?php
 
 $config = require('config.php');
