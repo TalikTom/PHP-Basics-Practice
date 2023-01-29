@@ -4,10 +4,10 @@ class Database
 {
 
     public $connection;
+    public $statement;
 
     public function __construct($config, $username = 'root', $password = '')
     {
-
 
 
         http_build_query($config, '', ';');
@@ -21,10 +21,28 @@ class Database
     public function query($query, $params = [])
 
     {
-        $statement = $this->connection->prepare("$query");
-        $statement->execute($params);
-        return $statement;
+        $this->statement = $this->connection->prepare("$query");
+        $this->statement->execute($params);
+        return $this;
     }
+
+
+    public function find()
+    {
+        return $this->statement->fetch();
+    }
+
+    public function findOrAbort() {
+        $result = $this->find();
+
+        if (! $result) {
+            abort();
+        }
+
+        return $result;
+    }
+
+
 }
 
 ?>
