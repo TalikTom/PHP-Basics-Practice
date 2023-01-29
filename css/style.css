@@ -64,6 +64,13 @@ svg {
     }
 }
 
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1100px;
+
+}
+
 /* Highcharts */
 
 .highcharts-figure,
@@ -203,7 +210,7 @@ footer {
     gap: 1rem;
     padding: 3rem 0;
     width: 80%;
-    max-width: 960px;
+    max-width: 1100px;
     margin: 0 auto;
     background-color: #252525;
 }

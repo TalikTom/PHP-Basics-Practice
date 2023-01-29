@@ -9,7 +9,7 @@
             <?php endforeach; ?>
         </ul>
         <p>
-            <a href="#">Create note</a>
+            <a href="/notes/create">Create note</a>
         </p>
     </main>
 <?php include 'partials/footer.php' ?>
