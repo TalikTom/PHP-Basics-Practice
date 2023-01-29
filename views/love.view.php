@@ -35,26 +35,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 
-<?php
-if ($valid) {
-    echo $name1, '<br>';
-
-    foreach ($repeatedLettersCountName1 as $i) {
-        echo $i;
-    }
-    echo '<br>' .$name2 . '<br>'  ;
-
-    foreach ($repeatedLettersCountName2 as $i) {
-        echo $i;
-    }
-} else {
-    echo 'please enter names using only characters a to ž';
-}
-?>
 
 
 
     <main class="center-grid">
+        <?php
+        if ($valid) {
+            echo $name1, '<br>';
+
+            foreach ($repeatedLettersCountName1 as $i) {
+                echo $i;
+            }
+            echo '<br>' .$name2 . '<br>'  ;
+
+            foreach ($repeatedLettersCountName2 as $i) {
+                echo $i;
+            }
+        } else {
+            echo 'please enter names using only characters a to ž';
+        }
+        ?>
+
         <form action="/love-calculator" method="POST">
             <label for="name1" id="name1">Enter name of the first person</label>
             <input type="text" name="name1">

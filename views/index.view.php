@@ -70,8 +70,8 @@ $options = ['top-right', 'top-left', 'bottom-right', 'bottom-left'];
 <?php include 'partials/header.php'; ?>
 <?php include 'partials/nav.php'; ?>
 
-<div class="main_container">
-    <div class="main_content">
+<div class="main_container ">
+    <div class="container">
 
         <h1>Spiral matrix</h1>
         <?= $message; ?>

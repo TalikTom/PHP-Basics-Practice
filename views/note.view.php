@@ -1,6 +1,6 @@
 <?php include 'partials/header.php'; ?>
 <?php include 'partials/nav.php'; ?>
-    <main>
+    <main class="container">
         <a href="/notes">Go back</a>
 
 

@@ -30,7 +30,7 @@ $message2 = 'This name was stored in a cookie: ' . $name;
 <?php include 'partials/nav.php'; ?>
 
 <div class="main_container">
-    <div class="main_content">
+    <div class="container">
         <h1>Cookies</h1>
         <p><?= "$message <br>" ?></p>
         <p><?= "$message2 <br>" ?></p>

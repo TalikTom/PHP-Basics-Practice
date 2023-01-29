@@ -1,7 +1,7 @@
 <?php include 'partials/header.php'; ?>
 <?php include 'partials/nav.php'; ?>
     <div class="main_container">
-        <div class="main_content">
+        <div class="container">
             <h1>Practice time chart</h1>
             <main>
                 <figure class="highcharts-figure">
