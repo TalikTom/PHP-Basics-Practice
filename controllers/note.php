@@ -8,8 +8,9 @@ $currentUserId = 1;
 
 $note = $db ->query('select * from notes where user_id = :id', ['id' => $_GET['user_id']])->findOrAbort();
 
-
-authorize($note['user_id'] === $currentUserId);
+echo $note['user_id'];
+echo $currentUserId;
+authorize($note['user_id'] == $currentUserId);
 
 
 
