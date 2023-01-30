@@ -14,13 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $validator = new Validator();
 
-    if ($validator->string($_POST['body'])) {
-        $errors['body'] = 'Your note is empty, please add text';
+    if (! $validator->string($_POST['body'], 1, 140)) {
+        $errors['body'] = 'Please write a note of max. 140 characters count';
     }
 
-    if (strlen($_POST['body']) > 140) {
-        $errors['body'] = 'Your text can be max. 140 characters count';
-    }
 
     if (empty($errors)) {
         $db->query('INSERT INTO notes(body,user_id) VALUES(:body, :user_id)',
