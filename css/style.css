@@ -215,6 +215,19 @@ footer {
     background-color: #252525;
 }
 
+@media (max-width: 800px) {
+    .nav_bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+@media (min-width: 800px) {
+    .toggle {
+        display: none;
+    }
+}
+
 .nav_bar li {
     list-style: none;
 }
@@ -655,4 +668,8 @@ select {
 
 .red {
     background-color: #6cfc05;
+}
+
+.hide {
+    display: none;
 }

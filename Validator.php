@@ -9,8 +9,8 @@ class Validator
         return strlen($value) >= $min && strlen($value) <= $max;
     }
 
-    public static function number($value, $min = 2, $max = 10)
+    public static function number($value)
     {
-        return is_numeric($value) >= $min && is_numeric($value) <= 10;
+        return is_numeric($value);
     }
 }

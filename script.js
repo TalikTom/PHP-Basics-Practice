@@ -50,20 +50,26 @@ Highcharts.chart('container', {
         name: 'Total - time',
         data: [50.40, 36.09, 29.53, 27.54, 20.52, 20.59, 23.37, 17.15]
 
-    }, ]
+    },]
 });
+
 function copyText() {
     let copyText = document.getElementById("textbox");
     copyText.select();
     document.execCommand("copy");
     document.getElementById("message")
-        .innerHTML ="Copied the text!"
+        .innerHTML = "Copied the text!"
 }
 
 
-    function copyEvent(id)
-    {
-        let str = document.getElementById(id);
-        window.getSelection().selectAllChildren(str);
-        document.execCommand("Copy")
-    }
+function copyEvent(id) {
+    let str = document.getElementById(id);
+    window.getSelection().selectAllChildren(str);
+    document.execCommand("Copy")
+}
+
+
+function toggle() {
+    let element = document.getElementById("nav");
+    element.classList.toggle("hide");
+}

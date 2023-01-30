@@ -1,5 +1,6 @@
 <nav class="nav_container">
-    <ul class="nav_bar">
+    <div><button class="toggle" onclick="toggle()">Open/close></button></div>
+    <ul class="nav_bar" id="nav">
         <li><a href="/">Spiral matrix</a></li>
         <li><a href="/cookies">Cookies</a></li>
         <li><a href="/multiplication">Multiplication</a></li>

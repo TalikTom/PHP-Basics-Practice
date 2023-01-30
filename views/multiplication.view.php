@@ -1,35 +1,37 @@
 <?php include 'partials/header.php'; ?>
 <?php include 'partials/nav.php'; ?>
-<div class="main_container">
+    <div class="main_container">
     <div class="container">
 
-        <h1>Get method - Multiplication table</h1>
+    <h1>Get method - Multiplication table</h1>
 
-        <form action="/views/multiplication.view.php" method="GET">
-            <label for="row">Enter row value</label>
-            <input type="number" value="" name="row" placeholder="1-10" max="10" min="1" required>
-            <label for="row">Enter column value</label>
-            <input type="number" value="" name="column" placeholder="1-10" max="10" min="1" required>
-            <input type="submit" class="btn">
-        </form>
-        <?php
-        $column = $_GET['column'] ?? 0;
-        $row = $_GET['row'] ?? 0;
+    <form action="/views/multiplication.view.php" method="GET">
+        <label for="row">Enter row value</label>
+        <input type="number" value="" name="row" placeholder="1-10" max="10" min="1" required>
+        <label for="row">Enter column value</label>
+        <input type="number" value="" name="column" placeholder="1-10" max="10" min="1" required>
+        <input type="submit" class="btn">
+    </form>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $column = $_GET['column'] ?? 0;
+    $row = $_GET['row'] ?? 0;
+}
 
 
-        echo '<table>';
-        for ($i = 1; $i <= $row; $i++) {
-            echo '<tr>';
-            for ($j = 1; $j <= $column; $j++) {
-                echo '<td>' . $i * $j, '</td>';
-            }
-            echo '</tr>';
+    echo '<table>';
+    for ($i = 1; $i <= $row; $i++) {
+        echo '<tr>';
+        for ($j = 1; $j <= $column; $j++) {
+            echo '<td>' . $i * $j, '</td>';
         }
-        echo '</table>';
+        echo '</tr>';
+    }
+    echo '</table>';
 
-        ?>
+    ?>
     </div>
 
-</div>
+    </div>
 
-<?php include 'partials/footer.php'?>
+    <?php include 'partials/footer.php' ?>
