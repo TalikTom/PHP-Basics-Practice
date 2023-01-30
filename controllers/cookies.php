@@ -1,3 +1,3 @@
-<?php
 
-require 'views/cookies.view.php';
+
+<?php require 'views/cookies.view.php'; ?>

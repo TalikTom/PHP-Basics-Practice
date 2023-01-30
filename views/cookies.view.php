@@ -11,6 +11,12 @@ $color = $_COOKIE['color'] ?? null;
 $options = ['light', 'dark'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $errors = [];
+
+
+    if (preg_match('/\d/', $_POST['name'])) {
+        $errors['name'] = 'Please do not enter numerical values';
+    }
 //    $slider = (isset($_POST['slider']) and $_POST['slider'] == true) ? true : false;
     $color = $_POST['color'];
     $name = $_POST['name'];
@@ -25,34 +31,36 @@ $message2 = 'This name was stored in a cookie: ' . $name;
 
 
 ?>
-
 <?php include 'partials/header.php'; ?>
 <?php include 'partials/nav.php'; ?>
 
-<div class="main_container">
-    <div class="container">
-        <h1>Cookies</h1>
-        <p><?= "$message <br>" ?></p>
-        <p><?= "$message2 <br>" ?></p>
+    <div class="main_container">
+        <div class="container">
+            <h1>Cookies</h1>
+            <p><?= "$message <br>" ?></p>
+            <p><?= "$message2 <br>" ?></p>
 
-        <p>Refresh this <a href="/views/cookies.view.php">Page</a> to see increase in views</p>
+            <p>Refresh this <a href="/views/cookies.view.php">Page</a> to see increase in views</p>
 
 
-            <form class= "cookies_form" action="/views/cookies.view.php" method="POST">
+            <form class="cookies_form" action="/views/cookies.view.php" method="POST">
                 <label for="color">Pick a theme</label>
                 <select name="color" id="color">
                     <option value="dark">Dark</option>
                     <option value="light">Light</option>
                 </select><br>
-            <!--    <label class="switch">-->
-            <!--        <input type="checkbox" name="slider" value="true">-->
-            <!--        <span class="slider round"></span>-->
-            <!--    </label>-->
+                <!--    <label class="switch">-->
+                <!--        <input type="checkbox" name="slider" value="true">-->
+                <!--        <span class="slider round"></span>-->
+                <!--    </label>-->
                 <label for="name">Enter a name</label>
-                <input type="text" name="name" id="name" >
+                <input type="text" name="name" id="name" value="<?= $_POST['name'] ?? '' ?>">
+                <?php if (isset($errors['name'])) : ?>
+                    <p><?= $errors['name'] ?></p>
+                <?php endif; ?>
 
                 <input class="btn" type="submit" value="Save">
             </form>
+        </div>
     </div>
-</div>
-<?php include 'partials/footer.php'?>
+<?php include 'partials/footer.php' ?>
