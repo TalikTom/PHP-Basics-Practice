@@ -12,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errors = [];
 
-    $validator = new Validator();
 
-    if (! $validator->string($_POST['body'], 1, 140)) {
+
+    if (! Validator::string($_POST['body'], 1, 140)) {
         $errors['body'] = 'Please write a note of max. 140 characters count';
     }
 

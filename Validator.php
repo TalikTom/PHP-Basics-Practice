@@ -2,7 +2,7 @@
 
 class Validator
 {
-    public function string($value, $min = 1, $max = 140)
+    public static function string($value, $min = 1, $max = 140)
     {
         $value = trim($value);
 
