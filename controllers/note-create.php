@@ -11,7 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = [];
 
     if (strlen($_POST['body']) === 0) {
-        $errors['body'] = 'A body is required';
+        $errors['body'] = 'Your note is empty, please add text';
+    }
+
+    if (strlen($_POST['body']) > 140) {
+        $errors['body'] = 'Your text can be max. 140 characters count';
     }
 
     if (empty($errors)) {
