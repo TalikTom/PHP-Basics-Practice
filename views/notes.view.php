@@ -4,7 +4,7 @@
         <ul>
             <?php foreach ($notes as $note) : ?>
 
-                <li><a href="/note?user_id=<?= $note['user_id'] ?>"><?= $note['body'] ?></a></li>
+                <li><a href="/note?note_id=<?= $note['note_id'] ?>"><?= htmlspecialchars($note['body']) ?></a></li>
 
             <?php endforeach; ?>
         </ul>

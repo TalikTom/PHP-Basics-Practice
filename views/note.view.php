@@ -4,7 +4,7 @@
         <a href="/notes">Go back</a>
 
 
-           <li> <?php echo $note['body'] ?></li>
+           <li> <?php echo htmlspecialchars($note['body'])?></li>
 
 
     </main>
