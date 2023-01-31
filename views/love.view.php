@@ -31,6 +31,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $repeatedLettersCountName1 = array_slice($repeatedLettersCount, 0, mb_strlen($name1));
     $repeatedLettersCountName2 = array_slice($repeatedLettersCount, mb_strlen($name1), mb_strlen($name2));
 
+
+
+    function loveCalculator($a1, $a2) {
+        return $a1[0] + $a2[count($a2) - 1];
+
+    }
+
+
+ $love = loveCalculator($repeatedLettersCountName1, $repeatedLettersCountName2 );
+
+
 }
 ?>
 
@@ -63,6 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" name="name2">
             <input type="submit">
         </form>
+
+        <?php
+        echo $love . '%';
+        ?>
+
     </main>
 
 <?php include 'partials/footer.php' ?>
