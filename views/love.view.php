@@ -33,6 +33,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
+    function equalize_array_length($array1, $array2) {
+        if (count($array1) < count($array2)) {
+            $diff = count($array2) - count($array1);
+            for ($i = 0; $i < $diff; $i++) {
+                array_push($array1, 0);
+            }
+        } else if (count($array2) < count($array1)) {
+            $diff = count($array1) - count($array2);
+            for ($i = 0; $i < $diff; $i++) {
+                array_push($array2, 0);
+            }
+        }
+        return [$array1, $array2];
+    }
+
+    $newArrays = equalize_array_length($repeatedLettersCountName1,$repeatedLettersCountName2);
+
+    print_r($newArrays[0]) . '<br>';
+    print_r($newArrays[1]) . '<br>';
+
     function loveCalculator($a1, $a2) {
         return $a1[0] + $a2[count($a2) - 1];
 
