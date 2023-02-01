@@ -56,29 +56,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     function loveCalculator(array $numbers)
     {
-        $sum = array_sum($numbers);
-        if (count($numbers) === 2 || $sum === 1) {
-            return (string) $sum;
+        $arrayStringify = implode($numbers);
+        $numbers = preg_split('//u', $arrayStringify, -1, PREG_SPLIT_NO_EMPTY);
+
+        if (count($numbers) == 2)
+        {
+            return implode($numbers);
         }
 
-        $lastIndex = count($numbers) - 1;
-        $numbers[0] = $numbers[0] + $numbers[$lastIndex];
-        array_pop($numbers);
-        echo implode($numbers), '<br>';
+        for ($i = 0; $i < count($numbers) - 1; $i++)
+        {
+            $numbers[$i] = $numbers[$i] + $numbers[count($numbers) - 1];
+            array_pop($numbers);
+            echo implode($numbers), "<br>";
+        }
 
         return loveCalculator($numbers);
     }
 
     $love = loveCalculator($array);
-
-    print_r($newArrays[0]) . '<br>';
-    print_r($newArrays[1]) . '<br>';
-//
-//    function loveCalculator($a1, $a2) {
-//        return $a1[0] + $a2[count($a2) - 1];
-//
-//    }
-    
 
 
 }
