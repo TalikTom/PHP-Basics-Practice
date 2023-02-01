@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo implode($array), '<br>';
 
 
-    function loveCalculator(array $numbers)
+    function loveCalculator(array $numbers, $result = '')
     {
         $arrayStringify = implode($numbers);
         $numbers = preg_split('//u', $arrayStringify, -1, PREG_SPLIT_NO_EMPTY);
@@ -68,10 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         {
             $numbers[$i] = $numbers[$i] + $numbers[count($numbers) - 1];
             array_pop($numbers);
-            echo implode($numbers), "<br>";
+            $result .= implode($numbers) . '<br>';
         }
 
-        return loveCalculator($numbers);
+        return $result . loveCalculator($numbers);
     }
 
     $love = loveCalculator($array);
