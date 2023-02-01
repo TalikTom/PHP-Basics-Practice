@@ -68,13 +68,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         {
             $numbers[$i] = $numbers[$i] + $numbers[count($numbers) - 1];
             array_pop($numbers);
-            $result .= implode($numbers) . '<br>';
+            $result .= '<li>' . implode($numbers) . '</li>';
+
         }
 
         return $result . loveCalculator($numbers);
+
     }
 
     $love = loveCalculator($array);
+
+
+    $string = $love;
+    $explodedArray = explode("</li>", $string);
+    $explodedArray2 = array_pop($explodedArray);
+    echo'<pre>';
+    print_r($explodedArray);
+    echo'</pre>';
 
 
 }
@@ -112,7 +122,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ?>
         <?php
         echo '<br>' . implode($array), '<br>';
-        echo $love . '%';
+        ?>
+        <?php foreach ($explodedArray as $n){
+            echo $n;
+        }
         ?>
 
     </main>
