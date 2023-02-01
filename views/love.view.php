@@ -50,16 +50,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $newArrays = equalize_array_length($repeatedLettersCountName1,$repeatedLettersCountName2);
 
-    print_r($newArrays[0]) . '<br>';
-    print_r($newArrays[1]) . '<br>';
+    $array = array_merge($newArrays[0], $newArrays[1]);
+    echo implode($array), '<br>';
 
-    function loveCalculator($a1, $a2) {
-        return $a1[0] + $a2[count($a2) - 1];
 
+    function loveCalculator(array $numbers)
+    {
+        $sum = array_sum($numbers);
+        if (count($numbers) === 2 || $sum === 1) {
+            return (string) $sum;
+        }
+
+        $lastIndex = count($numbers) - 1;
+        $numbers[0] = $numbers[0] + $numbers[$lastIndex];
+        array_pop($numbers);
+        echo implode($numbers), '<br>';
+
+        return loveCalculator($numbers);
     }
 
+    $love = loveCalculator($array);
 
- $love = loveCalculator($repeatedLettersCountName1, $repeatedLettersCountName2 );
+    print_r($newArrays[0]) . '<br>';
+    print_r($newArrays[1]) . '<br>';
+//
+//    function loveCalculator($a1, $a2) {
+//        return $a1[0] + $a2[count($a2) - 1];
+//
+//    }
+    
 
 
 }
