@@ -298,6 +298,12 @@ form {
     margin-bottom: 3rem;
 }
 
+.love-form {
+
+    align-items: center;
+
+}
+
 @media (max-width: 1010px) {
 
     form {
@@ -681,12 +687,32 @@ select {
 .love-title {
     font-size: 2rem;
     margin-top: 2rem;
-    animation: Color 10s linear infinite;
-    -webkit-animation: Color 10s ease-in-out infinite;
+    animation: Color 20s linear;
+    -webkit-animation: Color 20s ease-in-out;
+    animation-fill-mode: forwards;
 
 }
 
+.love-plus {
+    margin: 0;
+    font-size: 2rem;
+    animation: Color 20s linear;
+    -webkit-animation: Color 20s ease-in-out ;
+    animation-fill-mode: forwards;
+}
+
+
+.margin-top {
+    margin-top: 2rem;
+}
+
 @keyframes Color{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
     0%{
         color: #f60068;
     }

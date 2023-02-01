@@ -9,6 +9,10 @@ $valid = '';
 $lastValue = '';
 $array = [];
 $explodedArray = [];
+$name1Stringify = [];
+$name2Stringify = [];
+$repeatedLettersCountName1 = [];
+$repeatedLettersCountName2 = [];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name1 = $_POST['name1'];
     $name2 = $_POST['name2'];
@@ -90,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 
-    <main class="center-grid">
+    <main class="center-grid margin-top">
         <table>
             <tr>
                 <?php foreach ($name1Stringify as $v) : ?>
@@ -103,7 +107,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?php endforeach ?>
             </tr>
         </table>
-        +
+        <?php
+        if($valid) {
+            echo '<p class="love-plus">' . '+' .'</p>';
+        }
+        ?>
         <table>
             <tr>
                 <?php foreach ($name2Stringify as $v) : ?>
@@ -116,38 +124,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?php endforeach ?>
             </tr>
         </table>
-
-
         <?php
-        if ($valid) {
-            echo '<p>' . $name1 . '</p>';
-
-            foreach ($repeatedLettersCountName1 as $i) {
-                echo $i;
-            }
-            echo '<p>' . $name2 . '</p>';
-
-            foreach ($repeatedLettersCountName2 as $i) {
-                echo $i;
-            }
-        } else {
-            echo 'please enter names using only characters a to ž';
+        if($valid) {
+            echo '<p class="love-plus">' . '=' .'</p>';
         }
         ?>
 
         <?php
-        echo '<br>' . implode($array), '<br>';
+//        if ($valid) {
+//            echo '<p>' . $name1 . '</p>';
+//
+//            foreach ($repeatedLettersCountName1 as $i) {
+//                echo $i;
+//            }
+//            echo '<p>' . $name2 . '</p>';
+//
+//            foreach ($repeatedLettersCountName2 as $i) {
+//                echo $i;
+//            }
+//        } else {
+//            echo 'please enter names using only characters a to ž';
+//        }
+        ?>
+
+        <?php
+        echo implode($array), '<br>';
         ?>
 
         <?php foreach ($explodedArray as $n) {
             echo $n;
         }
         ?>
-        <h2 class="love-title"> Your love score is
-            <?= $lastValue ?>
-        </h2>
+        <?php
+        if($valid) {
+        echo ' <h2 class="love-title"> Your love score is ' .  $lastValue .'</h2>';
+        }
+        ?>
 
-        <form action="/love-calculator" method="POST">
+
+
+
+        <form action="/love-calculator" method="POST" class="love-form">
             <label for="name1" id="name1">Enter name of the first person</label>
             <input type="text" name="name1">
             <label for="name2" id="name2">Enter name of the second person</label>
