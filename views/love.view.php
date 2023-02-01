@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $newArrays = equalize_array_length($repeatedLettersCountName1,$repeatedLettersCountName2);
 
     $array = array_merge($newArrays[0], $newArrays[1]);
-    echo implode($array), '<br>';
+
 
 
     function loveCalculator(array $numbers, $result = '')
@@ -85,6 +85,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     <main class="center-grid">
+
+
+        <form action="/love-calculator" method="POST">
+            <label for="name1" id="name1">Enter name of the first person</label>
+            <input type="text" name="name1">
+            <label for="name2" id="name2">Enter name of the second person</label>
+            <input type="text" name="name2">
+            <input type="submit">
+        </form>
         <?php
         if ($valid) {
             echo $name1, '<br>';
@@ -101,16 +110,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo 'please enter names using only characters a to ž';
         }
         ?>
-
-        <form action="/love-calculator" method="POST">
-            <label for="name1" id="name1">Enter name of the first person</label>
-            <input type="text" name="name1">
-            <label for="name2" id="name2">Enter name of the second person</label>
-            <input type="text" name="name2">
-            <input type="submit">
-        </form>
-
         <?php
+        echo '<br>' . implode($array), '<br>';
         echo $love . '%';
         ?>
 
