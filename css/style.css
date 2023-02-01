@@ -677,3 +677,38 @@ select {
 .hide {
     display: none;
 }
+
+.love-title {
+    font-size: 2rem;
+    margin-top: 2rem;
+    animation: Color 10s linear infinite;
+    -webkit-animation: Color 10s ease-in-out infinite;
+
+}
+
+@keyframes Color{
+    0%{
+        color: #f60068;
+    }
+
+    20%{
+        color: #d71488;
+    }
+
+    40%{
+        color: #ef1568;
+    }
+
+    60%{
+        color: #f6300a;
+    }
+
+    80%{
+        color:#ED5565;
+    }
+
+    100%{
+        color: #ff0000;
+    }
+}
+

@@ -6,6 +6,9 @@ $name1 = '';
 $name2 = '';
 $namesTogether = '';
 $valid = '';
+$lastValue = '';
+$array = [];
+$explodedArray = [];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name1 = $_POST['name1'];
     $name2 = $_POST['name2'];
@@ -16,9 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $valid = is_string($name1);
 
 
-
     $name1 = str_replace(' ', '', $name1);
     $name2 = str_replace(' ', '', $name2);
+    $name1Stringify = str_split($name1);
+    $name2Stringify = str_split($name2);
 
     $namesTogether = $name1 . $name2;
 
@@ -32,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $repeatedLettersCountName2 = array_slice($repeatedLettersCount, mb_strlen($name1), mb_strlen($name2));
 
 
-
-    function equalize_array_length($array1, $array2) {
+    function equalize_array_length($array1, $array2)
+    {
         if (count($array1) < count($array2)) {
             $diff = count($array2) - count($array1);
             for ($i = 0; $i < $diff; $i++) {
@@ -48,10 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         return [$array1, $array2];
     }
 
-    $newArrays = equalize_array_length($repeatedLettersCountName1,$repeatedLettersCountName2);
+    $newArrays = equalize_array_length($repeatedLettersCountName1, $repeatedLettersCountName2);
 
     $array = array_merge($newArrays[0], $newArrays[1]);
-
 
 
     function loveCalculator(array $numbers, $result = '')
@@ -59,13 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $arrayStringify = implode($numbers);
         $numbers = preg_split('//u', $arrayStringify, -1, PREG_SPLIT_NO_EMPTY);
 
-        if (count($numbers) == 2)
-        {
+        if (count($numbers) == 2) {
             return implode($numbers);
         }
 
-        for ($i = 0; $i < count($numbers) - 1; $i++)
-        {
+        for ($i = 0; $i < count($numbers) - 1; $i++) {
             $numbers[$i] = $numbers[$i] + $numbers[count($numbers) - 1];
             array_pop($numbers);
             $result .= '<li>' . implode($numbers) . '</li>';
@@ -82,36 +83,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $string = $love;
     $explodedArray = explode("</li>", $string);
     $explodedArray2 = array_pop($explodedArray);
-    echo'<pre>';
-    print_r($explodedArray);
-    echo'</pre>';
+    $lastValue = end($explodedArray);
 
 
 }
 ?>
 
 
-
-
-
     <main class="center-grid">
+        <table>
+            <tr>
+                <?php foreach ($name1Stringify as $v) : ?>
+                    <td><?= $v ?></td>
+                <?php endforeach ?>
+            </tr>
+            <tr>
+                <?php foreach ($repeatedLettersCountName1 as $v) : ?>
+                    <td><?= $v ?></td>
+                <?php endforeach ?>
+            </tr>
+        </table>
+        +
+        <table>
+            <tr>
+                <?php foreach ($name2Stringify as $v) : ?>
+                    <td><?= $v ?></td>
+                <?php endforeach ?>
+            </tr>
+            <tr>
+                <?php foreach ($repeatedLettersCountName2 as $v) : ?>
+                    <td><?= $v ?></td>
+                <?php endforeach ?>
+            </tr>
+        </table>
 
 
-        <form action="/love-calculator" method="POST">
-            <label for="name1" id="name1">Enter name of the first person</label>
-            <input type="text" name="name1">
-            <label for="name2" id="name2">Enter name of the second person</label>
-            <input type="text" name="name2">
-            <input type="submit">
-        </form>
         <?php
         if ($valid) {
-            echo $name1, '<br>';
+            echo '<p>' . $name1 . '</p>';
 
             foreach ($repeatedLettersCountName1 as $i) {
                 echo $i;
             }
-            echo '<br>' .$name2 . '<br>'  ;
+            echo '<p>' . $name2 . '</p>';
 
             foreach ($repeatedLettersCountName2 as $i) {
                 echo $i;
@@ -120,13 +134,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo 'please enter names using only characters a to ž';
         }
         ?>
+
         <?php
         echo '<br>' . implode($array), '<br>';
         ?>
-        <?php foreach ($explodedArray as $n){
+
+        <?php foreach ($explodedArray as $n) {
             echo $n;
         }
         ?>
+        <h2 class="love-title"> Your love score is
+            <?= $lastValue ?>
+        </h2>
+
+        <form action="/love-calculator" method="POST">
+            <label for="name1" id="name1">Enter name of the first person</label>
+            <input type="text" name="name1">
+            <label for="name2" id="name2">Enter name of the second person</label>
+            <input type="text" name="name2">
+            <input type="submit">
+        </form>
+
 
     </main>
 
