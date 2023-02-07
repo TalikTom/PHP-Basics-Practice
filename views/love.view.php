@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $name1 = str_replace(' ', '', $name1);
     $name2 = str_replace(' ', '', $name2);
-    $name1Stringify = str_split($name1);
-    $name2Stringify = str_split($name2);
+    $name1Stringify = mb_str_split($name1);
+    $name2Stringify = mb_str_split($name2);
 
     $namesTogether = $name1 . $name2;
 
@@ -38,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $repeatedLettersCount = LoveCalc::countValues($namesTogether, $namesTogether2);
     $repeatedLettersCountName1 = array_slice($repeatedLettersCount, 0, mb_strlen($name1));
     $repeatedLettersCountName2 = array_slice($repeatedLettersCount, mb_strlen($name1), mb_strlen($name2));
+
 
 
     function equalize_array_length($array1, $array2)
