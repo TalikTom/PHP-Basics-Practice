@@ -18,5 +18,12 @@ function logout() {
     $params = session_get_cookie_params();
     setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
     session_destroy();
-    
+
+}
+
+function require_login($logged_in) {
+    if ($logged_in == false) {
+        header('Location: login.php');
+        exit;
+    }
 }
