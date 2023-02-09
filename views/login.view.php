@@ -17,3 +17,12 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
         exit;
     }
 }
+
+?>
+
+<h1>Login</h1>
+<form action="#" METHOD="POST">
+    Email: <input type= "email" name="email"><br>
+    Password: <input type="password" name="password"><br>
+    <input type="submit" value="Log in">
+</form>
