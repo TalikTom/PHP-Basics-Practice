@@ -1,5 +1,5 @@
-<?php include 'partials/header.php'; ?>
-<?php include 'partials/nav.php'; ?>
+<?php include 'views/partials/header.php'; ?>
+<?php include 'views/partials/nav.php'; ?>
     <main class="container">
         <ul>
             <?php foreach ($notes as $note) : ?>
@@ -12,4 +12,4 @@
             <a href="/notes/create">Create note</a>
         </p>
     </main>
-<?php include 'partials/footer.php' ?>
+<?php include 'views/partials/footer.php' ?>

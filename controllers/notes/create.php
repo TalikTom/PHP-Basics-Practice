@@ -1,6 +1,6 @@
 <?php
 
-require  'Validator.php';
+require 'Validator.php';
 
 $config = require('config.php');
 
@@ -30,4 +30,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
-require 'views/note-create.view.php';
+require 'views/notes/create.view.php';

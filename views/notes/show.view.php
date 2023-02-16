@@ -1,5 +1,5 @@
-<?php include 'partials/header.php'; ?>
-<?php include 'partials/nav.php'; ?>
+<?php include 'views/partials/header.php'; ?>
+<?php include 'views/partials/nav.php'; ?>
     <main class="container">
         <a href="/notes">Go back</a>
 
@@ -8,4 +8,4 @@
 
 
     </main>
-<?php include 'partials/footer.php' ?>
+<?php include 'views/partials/footer.php' ?>

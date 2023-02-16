@@ -1,5 +1,5 @@
-<?php include 'partials/header.php'; ?>
-<?php include 'partials/nav.php'; ?>
+<?php include 'views/partials/header.php'; ?>
+<?php include 'views/partials/nav.php'; ?>
     <main class="container">
         <h1>Create a note</h1>
         <form method="POST">
@@ -11,4 +11,4 @@
             <?php endif; ?>
         </form>
     </main>
-<?php include 'partials/footer.php' ?>
+<?php include 'views/partials/footer.php' ?>
